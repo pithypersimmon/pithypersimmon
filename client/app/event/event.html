@@ -1,1 +1,9 @@
 <h1>Event</h1>
+<div ng-repeat="event in data.events | orderBy:'date'">
+  <div>
+    {{ link.title }}<br />
+    {{ link.description }}<br />
+    {{ link.date }}<br />
+    {{ link.guests }}
+  </div>
+</div>
