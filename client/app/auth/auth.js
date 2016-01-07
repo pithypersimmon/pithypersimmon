@@ -1,5 +1,5 @@
-angular.module('foodbnb.auth')
-.controller('AuthCtrl', function ($scope) {
+angular.module('foodbnb.auth', [])
+.controller('authCtrl', function ($scope) {
   function onSignIn(googleUser) {
     // Useful data for your client-side scripts:
     var profile = googleUser.getBasicProfile();
