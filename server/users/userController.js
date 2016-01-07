@@ -26,14 +26,15 @@ module.exports = {
           //** if User exists, pass user on to .then promise
           return user
         }
-        .then(function (user) {
-        //** create token to send back for auth. Jwt is a JSON Web Toke Encoder
-          var token = jwt.encode(user, 'secret');
-          res.json({token: token});
-        })
-        .fail(function (error) {
-          next(error);
-        });
+      })
+      .then(function (user) {
+      //** create token to send back for auth. Jwt is a JSON Web Toke Encoder
+        var token = jwt.encode(user, 'secret');
+        res.json({token: token});
+      })
+      .fail(function (error) {
+        next(error);
+      });
   },
 
 
