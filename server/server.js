@@ -6,7 +6,7 @@ var PORT = process.env.port || 8080;
 
 
 //connect to mongoose
-//mongoose.connect(process.env.DB || 'mongodb://localhost/foodbnb');
+mongoose.connect(process.env.DB || 'mongodb://localhost/foodbnb');
 
 require('./config/middleware.js')(app, express);
 require('./config/routes.js')(app, express);
