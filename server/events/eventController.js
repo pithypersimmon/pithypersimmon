@@ -16,20 +16,20 @@ module.exports = {
 	},
 
 	addEvent: function(req, res, next){
-		// var eventname = req.body.eventname;
-		// var description = req.body.description;
-		// var guestsCap = req.body.guestsCap;
-		// var date = req.body.date;
-		// var location = req.body.location;
-		// var host = req.body.host;
+		var eventname = req.body.eventname;
+		var description = req.body.description;
+		var guestsCap = req.body.guestsCap;
+		var date = req.body.date;
+		var location = req.body.location;
+		var host = req.body.host;
 
-		var eventname = 'Dinner party';
-		var description = 'eating steak';
-		var guestsCap = 7;
-		var date = new Date('Jan 17, 2016');
-		var location = "Albany";
-		var host = 'Nick';
-		var price = 10;
+		// var eventname = 'Dinner party';
+		// var description = 'eating steak';
+		// var guestsCap = 7;
+		// var date = new Date('Jan 17, 2016');
+		// var location = "Albany";
+		// var host = 'Nick';
+		// var price = 10;
 
 		createEvent({
 			eventname: eventname,
