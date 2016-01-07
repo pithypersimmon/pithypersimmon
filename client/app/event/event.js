@@ -9,7 +9,7 @@ angular.module('foodbnb.event', [])
       })
       .catch(function(error) {
         console.error(error);
-      };
-
+      });
+  };
   initializeEvents();
 });
