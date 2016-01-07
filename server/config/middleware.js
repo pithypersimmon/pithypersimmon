@@ -3,14 +3,14 @@
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var passport = require('passport');
-var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-var auth = require('./auth.js');
+// var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+// var auth = require('./auth.js');
 
 
 //hack beacuse passport uses google plus api
-GoogleStrategy.prototype.userProfile = function(token, done) {
-  done(null, {})
-}
+// GoogleStrategy.prototype.userProfile = function(token, done) {
+//   done(null, {})
+// }
 
 
 module.exports = function (app, express) {
@@ -34,25 +34,25 @@ module.exports = function (app, express) {
   
 
 
-  passport.use(new GoogleStrategy({
-      clientID: auth.clientID,
-      clientSecret: auth.clientSecret,
-      callbackURL: auth.callbackURL
-    },
-    function(accessToken, refreshToken, profile, done) {
-      console.log(accessToken);
-      console.log(refreshToken)
-      console.log(profile);
-      auth.accessToken = accessToken;
-      // console.log(profile);
-      // done(null, accessToken);
-      done();
+//   passport.use(new GoogleStrategy({
+//       // clientID: auth.clientID,
+//       // clientSecret: auth.clientSecret,
+//       // callbackURL: auth.callbackURL
+//     },
+//     function(accessToken, refreshToken, profile, done) {
+//       console.log(accessToken);
+//       console.log(refreshToken);
+//       console.log(profile);
+//       // auth.accessToken = accessToken;
+//       // console.log(profile);
+//       // done(null, accessToken);
+//       done();
       
-      // User.findOrCreate({ googleId: profile.id }, function (err, user) {
-      //   return done(err, user);
-      // });
-    }
-  ));
+//       // User.findOrCreate({ googleId: profile.id }, function (err, user) {
+//       //   return done(err, user);
+//       // });
+//     }
+//   ));
 };
 
 
