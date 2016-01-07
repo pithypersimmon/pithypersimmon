@@ -5,6 +5,7 @@ var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var auth = require('./auth.js');
 
+
 //hack beacuse passport uses google plus api
 GoogleStrategy.prototype.userProfile = function(token, done) {
   done(null, {})
@@ -14,7 +15,9 @@ GoogleStrategy.prototype.userProfile = function(token, done) {
 module.exports = function (app, express) {
   app.use(passport.initialize());
   app.use(passport.session());
+  
   passport.serializeUser(function(user, done) {
+    // console.log("user123", user)
     done(null, user.id);
   });
 
@@ -23,6 +26,7 @@ module.exports = function (app, express) {
       done(err, user);
     });
   });
+  
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(bodyParser.json());
   app.use(express.static(__dirname + '../client'));
@@ -34,8 +38,16 @@ module.exports = function (app, express) {
     },
     function(accessToken, refreshToken, profile, done) {
       console.log(accessToken);
+      console.log(refreshToken)
       console.log(profile);
       auth.accessToken = accessToken;
+      // console.log(profile);
+      // done(null, accessToken);
+      done();
+      
+      // User.findOrCreate({ googleId: profile.id }, function (err, user) {
+      //   return done(err, user);
+      // });
     }
   ));
 };
