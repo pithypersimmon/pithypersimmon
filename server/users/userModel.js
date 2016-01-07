@@ -9,7 +9,8 @@ var UserSchema = new mongoose.Schema({
   first_name: String,
   last_name: String,
   email: String,
-  events : Array
+  events : Array,
+  hostedEvents: Array
 
 });
 
