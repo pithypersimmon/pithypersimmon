@@ -1,11 +1,11 @@
 <div>
   <h1>Host</h1>
   <form novalidate id='form' ng-submit='newEvent()'>
-    <input placeholder='Title'>
-    <input placeholder='Description'>
-    <input type="time" name="time" placeholder="HH:mm:ss" required/>
-    <input type="date" name="date" placeholder="yyyy-MM-dd" required />
-    <select class="1-100">
+    <input placeholder='Title' ng-model = 'event.title'>
+    <input placeholder='Description' ng-model = 'event.description'>
+    <input type="time" name="time" placeholder="HH:mm:ss" ng-model = 'event.time' required/>
+    <input type="date" name="date" placeholder="yyyy-MM-dd" ng-model = 'event.date' required />
+    Guests <select ng-model = 'event.guests' class="1-100">
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -17,10 +17,10 @@
       <option value="9">9</option>
       <option value="10">10</option>
     </select>
-    <input placeholder='Address'>
-    <input placeholder='City'>
-    <input placeholder='State'>
-    <input placeholder='Zip'>
+    <input placeholder='Address' ng-model = 'event.address'>
+    <input placeholder='City' ng-model = 'event.city'>
+    <input placeholder='State'ng-model = 'event.state'>
+    <input placeholder='Zip' ng-model = 'event.zip'>
   </form>
   <button type="submit" form="form" value="Submit">Submit</button>
 </div>
