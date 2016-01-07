@@ -57,7 +57,7 @@ var EventSchema = new mongoose.Schema({
 // // Reteive all events
 // EventSchema.methods.retrieveAllEvents = function() {
 //   Event.find({}, function(err, events) {
-//     if(!err) {
+//     if(!err) { 
 //       return events;
 //     } else {
 //       throw err;
