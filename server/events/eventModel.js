@@ -2,24 +2,28 @@ var Q = require('q');
 var mongoose = require('mongoose');
 
 var EventSchema = new mongoose.Schema({
+  eventId:{
+    type: Number
+  },
   eventname: {
     type: String,
     required: true,
     unique: false
   },
+
   description: {
     type: String,
     required: true
   },
 
-  guests: {
-    type: int,
+  guestsCap: {
+    type: Number,
     required: true
   },
 
   date: {
     type: Date,
-    required: true
+    // required: true
   },
 
   location: {
@@ -32,36 +36,40 @@ var EventSchema = new mongoose.Schema({
   //   type: binData,
   //   required: false
   // },
-
-  users: {
-    type: Array,
-    required: false
+  host: {
+    type: String,
+    required:true
   },
+
 
   guests: {
     type: Array,
     required: false
+  },
+
+  price: {
+    type: Number
   }
 
 });
 
-// Reteive all events
-EventSchema.methods.retrieveAllEvents = function() {
-  Event.find({}, function(err, events) {
-    if(!err) {
-      return events;
-    } else {
-      throw err;
-    }
-});
+// // Reteive all events
+// EventSchema.methods.retrieveAllEvents = function() {
+//   Event.find({}, function(err, events) {
+//     if(!err) {
+//       return events;
+//     } else {
+//       throw err;
+//     }
+// });
 
-// Reteive event by id
-UserSchema.methods.retrieveEventById = function (id) {
-};
+// // Reteive event by id
+// UserSchema.methods.retrieveEventById = function (id) {
+// };
 
-// Reteive event by location
-UserSchema.methods.retrieveEventByLocation = function (location) {
-};
+// // Reteive event by location
+// UserSchema.methods.retrieveEventByLocation = function (location) {
+// };
 
 
-module.exports = mongoose.model('event', EventSchema);
+module.exports = mongoose.model('Event', EventSchema);
