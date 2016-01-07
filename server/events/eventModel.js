@@ -11,7 +11,10 @@ var EventSchema = new mongoose.Schema({
     required: true,
     unique: false
   },
-  time
+
+  time: {
+    type: String
+  },
 
   description: {
     type: String,
