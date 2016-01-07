@@ -11,6 +11,10 @@ angular.module('foodbnb', [
   .when('/', {
     redirectTo: '/splash'
   })
+  .when('/login', {
+    templateUrl: 'app/auth/login.html',
+    controller: 'authCtrl'
+  })
   .when('/splash', {
     templateUrl: 'app/splash/splash.html',
     controller: 'splashCtrl'
