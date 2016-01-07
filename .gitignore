@@ -24,3 +24,5 @@ client/lib
 .floo
 .flooignore
 .idea
+
+/server/config/auth.js
