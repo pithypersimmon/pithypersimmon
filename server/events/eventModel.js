@@ -53,7 +53,8 @@ EventSchema.methods.retrieveAllEvents = function() {
     } else {
       throw err;
     }
-});
+  });
+};
 
 // Reteive event by id
 UserSchema.methods.retrieveEventById = function (id) {
