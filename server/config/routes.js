@@ -3,13 +3,9 @@ var passport = require('passport');
 var helpers = require('./helpers.js');
 
 module.exports = function(app, express){
-	// app.get('/', function(req, res){
-	// 	res.send(200, 'main');
-	// });
-  
-  app.get('/', passport.authenticate('google', { 
-    scope: 'https://www.googleapis.com/auth/plus.login' 
-  }));
+	app.get('/', function(req, res){
+		res.render('index');
+	});
 
 	app.get('/login', function(req, res){
 		res.send(200, 'login');

@@ -1,5 +1,6 @@
 
 // var morgan = require('morgan');
+var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
@@ -13,8 +14,12 @@ GoogleStrategy.prototype.userProfile = function(token, done) {
 
 
 module.exports = function (app, express) {
+  app.use(morgan('dev'));
   app.use(passport.initialize());
   app.use(passport.session());
+  app.use(bodyParser.urlencoded({extended: true}));
+  app.use(bodyParser.json());
+  app.use(express.static(__dirname + '/../../client'));
   
   passport.serializeUser(function(user, done) {
     // console.log("user123", user)
@@ -27,9 +32,7 @@ module.exports = function (app, express) {
     });
   });
   
-  app.use(bodyParser.urlencoded({extended: true}));
-  app.use(bodyParser.json());
-  app.use(express.static(__dirname + '../client'));
+
 
   passport.use(new GoogleStrategy({
       clientID: auth.clientID,
