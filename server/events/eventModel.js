@@ -64,6 +64,7 @@ var EventSchema = new mongoose.Schema({
 //     }
 // });
 
+
 // // Reteive event by id
 // UserSchema.methods.retrieveEventById = function (id) {
 // };
