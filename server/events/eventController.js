@@ -28,24 +28,6 @@ module.exports = {
 		var zip = req.body.zip;
 		
 
-		// { title: 'a',
-  // description: 'd',
-  // time: '1970-01-01T08:59:00.000Z',
-  // date: '2016-01-01T08:00:00.000Z',
-  // guests: '2',
-  // address: '111 is',
-  // city: 'sd',
-  // state: 'ca',
-  // zip: '90001' }
-
-		// var eventname = 'Dinner party';
-		// var description = 'eating steak';
-		// var guestsCap = 7;
-		// var date = new Date('Jan 17, 2016');
-		// var location = "Albany";
-		// var host = 'Nick';
-		// var price = 10;
-
 		createEvent({
 			title: title,
 			description: description,
