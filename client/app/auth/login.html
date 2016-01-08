@@ -1,20 +1,27 @@
-<h1>Log In</h1>
-<div>
-    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-</div>
+<h1>Logged In</h1>
+<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
 <script>
     function onSignIn(googleUser) {
-    // Useful data for your client-side scripts:
-    var profile = googleUser.getBasicProfile();
-    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-    console.log("Name: " + profile.getName());
-    console.log("Image URL: " + profile.getImageUrl());
-    console.log("Email: " + profile.getEmail());
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log("Name: " + profile.getName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
 
-    // The ID token you need to pass to your backend:
-    var id_token = googleUser.getAuthResponse().id_token;
-    console.log("ID Token: " + id_token);
-}
-//Immediately Invokes this
-onSignIn();
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+
+//        setTimeout(function(){
+//            location.reload()
+//        },2000)
+    };
+    location.reload();
+
 </script>
+<!--<meta http-equiv="refresh" content="1" >-->
+
+
+
+
