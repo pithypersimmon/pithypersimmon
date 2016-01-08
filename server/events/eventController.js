@@ -16,12 +16,27 @@ module.exports = {
 	},
 
 	addEvent: function(req, res, next){
-		var eventname = req.body.eventname;
+		console.log(req.body);
+		var title= req.body.title;
 		var description = req.body.description;
-		var guestsCap = req.body.guestsCap;
+		var time = req.body.time;
 		var date = req.body.date;
-		var location = req.body.location;
-		var host = req.body.host;
+		var guestsCap = req.body.guests;
+		var address = req.body.address;
+		var city = req.body.city;
+		var state = req.body.state;
+		var zip = req.body.zip;
+		
+
+		// { title: 'a',
+  // description: 'd',
+  // time: '1970-01-01T08:59:00.000Z',
+  // date: '2016-01-01T08:00:00.000Z',
+  // guests: '2',
+  // address: '111 is',
+  // city: 'sd',
+  // state: 'ca',
+  // zip: '90001' }
 
 		// var eventname = 'Dinner party';
 		// var description = 'eating steak';
@@ -32,12 +47,15 @@ module.exports = {
 		// var price = 10;
 
 		createEvent({
-			eventname: eventname,
+			title: title,
 			description: description,
-			guestsCap: guestsCap,
-			// date: date,
-			location: location,
-			host: host
+			time: time,
+			date: date,
+			guestsCap: guestsCap, 
+			address: address,
+			city: city,
+			state: state,
+			zip: zip
 		})
 		.then(function(newEvent){
 			res.json(newEvent);

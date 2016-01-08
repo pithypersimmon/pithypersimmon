@@ -1,4 +1,5 @@
 angular.module('foodbnb', [
+  'foodbnb.services',
   'foodbnb.event',
   'foodbnb.guest',
   'foodbnb.host',
@@ -30,5 +31,7 @@ angular.module('foodbnb', [
   .when('/event', {
     templateUrl: 'app/event/event.html',
     controller: 'eventCtrl'
+  }).otherwise({
+    redirectTo: '/splash'
   });
 });

@@ -6,24 +6,19 @@ var EventSchema = new mongoose.Schema({
     type: Number
   },
   
-  eventname: {
+  description: {
+    type: String,
+    required: true
+  },
+
+  title: {
     type: String,
     required: true,
     unique: false
   },
 
   time: {
-    type: String
-  },
-
-  description: {
-    type: String,
-    required: true
-  },
-
-  guestsCap: {
-    type: Number,
-    required: true
+    type: Date
   },
 
   date: {
@@ -31,8 +26,29 @@ var EventSchema = new mongoose.Schema({
     // required: true
   },
 
-  location: {
+  guestsCap: {
+    type: Number,
+    required: true
+  },
+
+
+  address: {
     type: String,
+    required: true
+  },
+
+  city: {
+    type: String,
+    required: true
+  },
+
+  state: {
+    type: String,
+    required: true
+  },
+
+  zip: {
+    type: Number,
     required: true
   },
 
@@ -42,8 +58,7 @@ var EventSchema = new mongoose.Schema({
   //   required: false
   // },
   host: {
-    type: String,
-    required:true
+    type: String
   },
 
 
