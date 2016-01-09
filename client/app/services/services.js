@@ -7,6 +7,9 @@ angular.module('foodbnb.services', [])
   };
 })
 .factory('Guest', function ($http) {
+})
+
+.factory('Login', function ($http) {
 
 })
 
