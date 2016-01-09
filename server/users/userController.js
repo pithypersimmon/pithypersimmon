@@ -8,9 +8,9 @@ var createUser = Q.nbind(User.create, User);
 module.exports = {
   //** Step after Google OAuth Login. Google response data will be in req
   signin: function (req, res, next) {
-    var username = req.body.username;
-    var first_name = req.body.first_name;
-    var last_name = req.body.last_name;
+    var IdToken = req.body.IdToken;
+    var name = req.body.name;
+    var imageUrl = req.body.imageUrl;
 
     //** Queries Database and looks for User
     findUser({username: username})
@@ -18,9 +18,9 @@ module.exports = {
         //** If user does not exist in the database, create a new user with properties
         if (!user) {
           return createUser({
-            username: username,
-            first_name: first_name,
-            last_name: last_name
+            IdToken: IdToken,
+            name: name,
+            imageUrl: imageUrl
           });
         } else {
           //** if User exists, pass user on to .then promise
@@ -48,7 +48,7 @@ module.exports = {
       next(new Error('No token'));
     } else {
       var user = jwt.decode(token, 'secret');
-      findUser({username: user.username})
+      findUser({email: user.email})
         .then(function (foundUser) {
           if (foundUser) {
             res.send(200);
