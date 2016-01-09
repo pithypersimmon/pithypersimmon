@@ -49,7 +49,8 @@ module.exports = {
 
 	oneEvent: function(req, res, next) {
 		var id = req.params.id;
-		Event.find({eventId:id})
+		Event.find({_id: id})
+		// ({ _id : collection.db.bson_serializer.ObjectID.createFromHexString(req.params.id) })
 		.then(function(event){
 			res.json(event);
 		}).fail(function(error){

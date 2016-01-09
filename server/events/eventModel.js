@@ -2,9 +2,6 @@ var Q = require('q');
 var mongoose = require('mongoose');
 
 var EventSchema = new mongoose.Schema({
-  eventId:{
-    type: Number
-  },
   
   description: {
     type: String,
