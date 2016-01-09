@@ -1,11 +1,11 @@
 <h1>Splash</h1>
 <div ng-repeat="event in data.events | orderBy:'date'">
   <div>
-    {{ event.title }}<br />
-    {{ event.description }}<br />
-    {{ event.date }}<br />
-    {{ event.time }}<br />
-    {{ event.address + event.city + event.state + event.zip}}<br />
-    Guests {{ event.guests }}
+    <a ng-href="/#/event/{{ event._id }}">{{ event.title }}</a><br />
+    When: {{ event.date | date:"MM/dd/yyyy 'at' h:mma"}}<br />
+    Where: {{ event.address }}<br />
+    {{ event.city + ', ' + event.state + ' ' + event.zip}}<br />
+    Seats: {{ event.guests }}<br /><br />
+    {{ event.description }}<br /><br />
   </div>
 </div>
