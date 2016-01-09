@@ -1,8 +1,10 @@
 <h1>Logged In</h1>
 <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
 <script>
+    var request = require("request");
+    //** Using Google Sign in using OpenID
     function onSignIn(googleUser) {
-        // Useful data for your client-side scripts:
+        // Useful data for your client-side scripts. Just Logging in console to view data.
         var profile = googleUser.getBasicProfile();
         console.log("ID: " + profile.getId()); // Don't send this directly to your server!
         console.log("Name: " + profile.getName());
@@ -12,16 +14,30 @@
         // The ID token you need to pass to your backend:
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
+        //*** ACTUAL POST Request to server with google user data.
+        request({
+            method: "POST",
+            //TODO: NEED ROUTE FOR POSTING TO DATABASE
+            url: "https://localhost:8080/????",
+            json: {
+                IdToken: googleUser.getAuthResponse().id_token,
+                name: profile.getName(),
+                imageUrl: profile.getImageUrl(),
+                email: profile.getEmail()
+            },
+            headers : {
+                'Content-Type': "application/json"
+            }
 
-//        setTimeout(function(){
-//            location.reload()
-//        },2000)
+        }, function(err, res, body){
+            console.log("made post req")
+//            console.log(">>>>>>>>>>> Body: ", body)
+
+        })
+
     };
-    location.reload();
 
 </script>
-<!--<meta http-equiv="refresh" content="1" >-->
-
 
 
 
