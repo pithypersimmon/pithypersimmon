@@ -3,6 +3,7 @@
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var passport = require('passport');
+var cors = require("cors")
 // var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 // var auth = require('./auth.js');
 
@@ -14,6 +15,7 @@ var passport = require('passport');
 
 
 module.exports = function (app, express) {
+  app.use(cors());
   app.use(morgan('dev'));
   app.use(passport.initialize());
   app.use(passport.session());
