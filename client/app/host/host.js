@@ -7,5 +7,10 @@ angular.module('foodbnb.host', [])
     .then(function (response) {
       console.log("Successful Post");   
     });
-  };
-});
+  };  
+})
+.controller('formCtrl', function ($scope) {
+
+})
+
+;
