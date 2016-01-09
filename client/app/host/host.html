@@ -1,26 +1,57 @@
 <div>
   <h1>Host</h1>
-  <form novalidate id='form' ng-submit='newEvent()'>
-    <input placeholder='Title' ng-model = 'event.title'>
-    <input placeholder='Description' ng-model = 'event.description'>
-    <input type="time" name="time" placeholder="HH:mm:ss" ng-model = 'event.time' required/>
-    <input type="date" name="date" placeholder="yyyy-MM-dd" ng-model = 'event.date' required />
-    Guests <select ng-model = 'event.guests' class="1-100">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-    </select>
-    <input placeholder='Address' ng-model = 'event.address'>
-    <input placeholder='City' ng-model = 'event.city'>
-    <input placeholder='State'ng-model = 'event.state'>
-    <input placeholder='Zip' ng-model = 'event.zip'>
-  </form>
-  <button type="submit" form="form" value="Submit">Submit</button>
+  <div>
+    <form novalidate name='form' ng-submit='newEvent()'>
+      <!--name properties let the form controller see everything and use special props -->
+      Title:
+      <input type='text' placeholder='Title' ng-model = 'event.title' name='uTitle' required = ''>
+      <br />
+      <div ng-show="form.$submitted || form.uTitle.$touched">
+        <div ng-show="form.uTitle.$error.required">Need Title Plox</div>
+      </div>
+
+      Description:
+      <input type='text' placeholder='Description' ng-model = 'event.description' name='uDescription' required = ''>
+      <br />
+      <div ng-show="form.$submitted || form.uDescription.$touched">
+        <div ng-show="form.uDescription.$error.required">Need Description Plox</div>
+      </div>
+
+      Time: 
+      <input type="time" name="uTime" placeholder="HH:mm:ss" ng-model = 'event.time' required/>
+      <br />
+      <div ng-show="form.$submitted || form.uTime.$touched">
+        <div ng-show="form.uTime.$error.required">Need Time Plox</div>
+      </div>
+
+      Date:
+      <input type="date" name="uDate" placeholder="yyyy-MM-dd" ng-model = 'event.date' required />
+      <br />
+      <div ng-show="form.$submitted || form.uDate.$touched">
+        <div ng-show="form.Date.$error.required">Need Date Plox</div>
+      </div>
+
+
+      Guests #:
+      <select ng-model = 'event.guests' class="1-100">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="Anyone!">Anyone!</option>
+      </select>
+
+      <input placeholder='Address' ng-model = 'event.address'>
+      <input placeholder='City' ng-model = 'event.city'>
+      <input placeholder='State'ng-model = 'event.state'>
+      <input placeholder='Zip' ng-model = 'event.zip'>
+    </form>
+  </div>
+  <button type="submit" form="form" value="Submit" ng-disabled="form.$invalid">Submit</button>
 </div>
