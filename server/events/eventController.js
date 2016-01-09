@@ -45,5 +45,16 @@ module.exports = {
 		.fail(function(error){
 			next(error);
 		});
+	},
+
+	oneEvent: function(req, res, next) {
+		var id = req.params.id;
+		Event.find({eventId:id})
+		.then(function(event){
+			res.json(event);
+		}).fail(function(error){
+			next(error);
+		});
+
 	}
 }
