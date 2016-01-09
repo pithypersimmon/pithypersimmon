@@ -25,7 +25,8 @@
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
         //*** ACTUAL POST Request to server with google user data.
-        var data = {"IdToken": id_token, "name": profile.getName(), "imageUrl": profile.getImageUrl(), "email": profile.getEmail()}
+        var data = {"IdToken": id_token, "name": profile.getName(), "imageUrl": profile.getImageUrl(), "email": profile.getEmail()};
+        jQuery.support.cors = true;
         $.ajax({
           type: "POST",
           url: "https://localhost:8080/api/users/signin",
