@@ -8,12 +8,13 @@ var createUser = Q.nbind(User.create, User);
 module.exports = {
   //** Step after Google OAuth Login. Google response data will be in req
   signin: function (req, res, next) {
+    console.log("REQUEST", req.body)
     var IdToken = req.body.IdToken;
     var name = req.body.name;
     var imageUrl = req.body.imageUrl;
 
     //** Queries Database and looks for User
-    findUser({username: username})
+    findUser({IdToken: IdToken})
       .then(function (user) {
         //** If user does not exist in the database, create a new user with properties
         if (!user) {
