@@ -41,7 +41,7 @@ angular.module('foodbnb.services', [])
     }).then(function (res) {
       return res.data;
     });
-  };  
+  };
 
 
   // Add event
