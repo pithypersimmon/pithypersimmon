@@ -90,9 +90,8 @@ module.exports = {
 		});
 	},
 
-	// db.events.find({ _id : db.events.db.bson_serializer.ObjectID.createFromHexString("568ed8d9e5f825ac402ed87d") })
-
-
+	
+	//info for a specific event
 	oneEvent: function(req, res, next) {
 		var id = req.params.id;
 		findAnEvent({_id: id})
@@ -104,10 +103,12 @@ module.exports = {
 
 	},
 
+
+	//puts user in event guests array
 	addUserToEvent: function(req, res, next) {
 		var user = req.body.user;
 		var id = req.params.id;
-		// Event.findOne({ _id: id }).update({guests: guests.push(user)})
+		
 		Event.findOne({ _id: id }).then(function(event){
   			if (event){
   				var len = event.guests.length;
