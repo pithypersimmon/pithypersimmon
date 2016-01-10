@@ -4,6 +4,7 @@ var Event = require('./eventModel.js');
 
 var createEvent = Q.nbind(Event.create, Event);
 var findAllEvents = Q.nbind(Event.find, Event);
+var findAnEvent = Q.nbind(Event.findOne, Event);
 
 var seedData = [
   {
@@ -89,15 +90,43 @@ module.exports = {
 		});
 	},
 
+	// db.events.find({ _id : db.events.db.bson_serializer.ObjectID.createFromHexString("568ed8d9e5f825ac402ed87d") })
+
+
 	oneEvent: function(req, res, next) {
 		var id = req.params.id;
-		Event.find({_id: id})
-		// ({ _id : collection.db.bson_serializer.ObjectID.createFromHexString(req.params.id) })
+		findAnEvent({_id: id})
 		.then(function(event){
 			res.json(event);
 		}).fail(function(error){
 			next(error);
 		});
 
-	}
+	},
+
+	addUserToEvent: function(req, res, next) {
+		var user = req.body.user;
+		var id = req.params.id;
+		// Event.findOne({ _id: id }).update({guests: guests.push(user)})
+		Event.findOne({ _id: id }).then(function(event){
+  			if (event){
+  				var len = event.guests.length;
+  				if (len < event.guestsCap) {
+  					if (event.guests.indexOf(user) === -1){
+		  				event.guests.push(user);
+		  				event.save();
+		  				res.json(event);
+  					} else {
+  						res.send(500).send('User is already attending!')
+  					}
+  				} else {
+					res.send(500).send('Event is full!');
+				}
+  			} else {
+  				res.send(500).send('Event not found');
+  			}
+  		});
+  		
+  	}
+
 }

@@ -23,4 +23,5 @@ module.exports = function(app, express){
   app.get('/api/events', eventController.allEvents);
   app.post('/api/events', eventController.addEvent);
   app.get('/api/events/:id', eventController.oneEvent);
+  app.put('/api/events/:id', eventController.addUserToEvent);
 }
