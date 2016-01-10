@@ -28,11 +28,13 @@ module.exports = {
     var city = req.body.city;
     var state = req.body.state;
     var zip = req.body.zip;
-    var username = req.body.username;
+  	//Not sure where username is coming from. Dont see it in POST data.
+    //var username = req.body.username;
 
 
 		createEvent({
-			host: username,
+			//TODO: I have commented out the Host field for now. I have an idea of how to save host name and will implement soon
+			//host: name,
 			title: title,
 			description: description,
 			time: time,
@@ -90,6 +92,7 @@ module.exports = {
   		});
   		
   	},
+	//TODO: Need to modifiy this function as it is currently comapring a single value against an array of values
   	getEventsUserIsAttending: function(req, res, next) {
   		var user = req.params.username;
 
@@ -101,6 +104,8 @@ module.exports = {
   			}
   		});
   	},
+
+	//TODO: Need to modifiy this function as it is currently comapring a single value against an array of values
 
   	getEventUserIsHosting: function(req, res, next) {
   		var user = req.params.username;
