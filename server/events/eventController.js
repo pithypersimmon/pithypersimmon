@@ -28,7 +28,8 @@ module.exports = {
     var city = req.body.city;
     var state = req.body.state;
     var zip = req.body.zip;
-    var username = req.body.username;
+  	//Not sure where username is coming from. Dont see it in POST data.
+    //var username = req.body.username;
 
 
 		createEvent({
@@ -91,7 +92,7 @@ module.exports = {
   		
   	},
   	getEventsUserIsAttending: function(req, res, next) {
-  		var user = req.params.username;
+  		var user = req.params.name;
 
   		findAllEvents({guests: user}).then(function(events) {
   			if (events) {
@@ -103,7 +104,7 @@ module.exports = {
   	},
 
   	getEventUserIsHosting: function(req, res, next) {
-  		var user = req.params.username;
+  		var user = req.params.name;
 
   		findAllEvents({host: user}).then(function(events) {
   			if (events) {
