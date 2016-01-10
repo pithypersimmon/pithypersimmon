@@ -14,7 +14,7 @@ module.exports = {
       res.json(events);
     }).fail(function(error){
       next(error);
-    })
+    });
   },
 
   addEvent: function(req, res, next){
@@ -79,7 +79,7 @@ module.exports = {
 		  				event.save();
 		  				res.json(event);
   					} else {
-  						res.status(500).send('User is already attending!')
+  						res.status(500).send('User is already attending!');
   					}
   				} else {
 					res.status(500).send('Event is full!');
@@ -115,4 +115,4 @@ module.exports = {
   	}
 
 
-}
+};
