@@ -1,6 +1,6 @@
 var passport = require('passport');
 var eventController = require('../events/eventController.js');
-var userController = require('../users/userController.js')
+var userController = require('../users/userController.js');
 var helpers = require('./helpers.js');
 
 module.exports = function(app, express){
@@ -28,4 +28,4 @@ module.exports = function(app, express){
   app.get('/api/events/attending/:username', eventController.getEventsUserIsAttending);
   app.get('/api/events/hosting/:username', eventController.getEventUserIsHosting);
 
-}
+};

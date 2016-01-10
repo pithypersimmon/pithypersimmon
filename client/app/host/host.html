@@ -1,7 +1,7 @@
 <div>
   <h1>Host</h1>
   <div>
-    <form novalidate name='form' ng-submit='newEvent()'>
+    <form novalidate id='Event' name ='form' ng-submit='newEvent()'>
       <!--name properties let the form controller see everything and use special props -->
       Title:
       <input type='text' placeholder='Title' ng-model = 'event.title' name='uTitle' required = ''>
@@ -53,5 +53,5 @@
       <input placeholder='Zip' ng-model = 'event.zip'>
     </form>
   </div>
-  <button type="submit" form="form" value="Submit" ng-disabled="form.$invalid">Submit</button>
+  <button type="submit" form='Event' value="Submit" ng-disabled="form.$invalid">Submit</button>
 </div>

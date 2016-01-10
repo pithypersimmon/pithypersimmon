@@ -3,7 +3,7 @@
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var passport = require('passport');
-var cors = require("cors")
+var cors = require("cors");
 // var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 // var auth = require('./auth.js');
 
