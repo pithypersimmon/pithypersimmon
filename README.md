@@ -12,6 +12,19 @@
 | `GET` | /api/events/attending/:username | Return all events that a particular user is attending. Username must be passed in as the last part of the URL path. Username is obtained from accessing session.name. |
 | `GET` | /api/events/hosting/:username | Return all events that a particular user is hosting. Username must be passed in as the last part of the URL path. Username is obtained from accessing session.name. |
 
+# Angular Routes
+
+| Endpoint        | templateUrl      | controller  |
+| ------------- |:-------------:| ------------:|
+| `/` | ** redirectTo: "/splash" | n/a |
+| `/login` | app/auth/login.html | authCtrl |
+| `/splash` | app/splash/splash.html | splashCtrl |
+| `/host` | app/host/host.html | hostCtrl |
+| `/guest` | app/guest/guest.html | guestCtrl |
+| `/events` | app/event/event.html | eventCtrl |
+| `n/a` | ** redirectTo: "/splash" | n/a |
+
+
 # Login
 
 ### Google OAuth OpenId Connect
