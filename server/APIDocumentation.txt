@@ -1,0 +1,71 @@
+
+User Schema:
+
+{
+  IdToken: Number,
+  name: String,
+  imageUrl: String,
+  email: String,
+  events : Array,
+  hostedEvents: Array
+}
+
+TODO: update above to just contain fields that we are using
+
+
+Basic Event Schema:
+See Event Model for complete schema
+{
+	description: String, //A description of the Event
+	title: String,		 //The Events Title
+	time: Date,			 //Time of event 
+	date: Date,			 //Date of event
+	guestsCap: Number,	 //The limit to the number of guests at the event
+	address: String,	 //Event's Address
+	city: String,		 //Event's City
+	state: String,		 //Event's State
+	zip: Number,		 //Event's Zip code
+	host: String		 //Name of the user hosting the event
+}
+
+
+
+Route: POST /api/users/signin
+
+Route: GET /api/users/signedin
+
+Route: GET /api/events
+Basic Functionality: Returns all Events in database
+
+
+Route: POST /api/events
+Basic Functionality: Add an Event to the database
+Request Information: All information is passed in via the inputs with the exception of username which should be the session.name
+Request Body Object Example:
+{ 
+  username: 'nick'	//the session.name should be passed in using the key username
+  title: 'Barbeque', //passed in via input field
+  description: 'Hot Dogs and Hamburgers', //passed in via input field
+  time: '1970-01-01T21:58:00.000Z', //passed in via input field
+  date: '2017-01-31T08:00:00.000Z', //passed in via input field
+  guests: '3', //passed in via input field
+  address: '33 3rd st', //passed in via input field
+  city: 'San Francisco', //passed in via input field
+  state: 'CA', //passed in via input field
+  zip: '94101'  //passed in via input field
+}
+
+Route: GET /api/events/:id
+Basic Functionality: Get an event based on its unique object id field that mongoDB provides by debault
+
+
+Route: PUT /api/events/:id
+Basic Functionality: Add a user to an event's guest field. Username must be sent in request object. Username is obtained from accessing session.name. 
+
+Route: GET /api/events/attending/:username
+Basic Functionality: Return all events that a particular user is attending.
+Username must be passed in as the last part of the URL path. Username is obtained from accessing session.name.
+
+Route: GET /api/events/hosting/:username
+Basic Functionality: Return all events that a particular user is hosting.
+Username must be passed in as the last part of the URL path. Username is obtained from accessing session.name.

@@ -34,7 +34,7 @@ module.exports = {
 
 		createEvent({
 			//TODO: I have commented out the Host field for now. I have an idea of how to save host name and will implement soon
-			//host: name,
+			//host: username,
 			title: title,
 			description: description,
 			time: time,
@@ -69,7 +69,7 @@ module.exports = {
 
 	//puts user in event guests array
 	addUserToEvent: function(req, res, next) {
-		var user = req.body.user;
+		var user = req.body.username;
 		var id = req.params.id;
 		
 		Event.findOne({ _id: id }).then(function(event){
@@ -92,7 +92,7 @@ module.exports = {
   		});
   		
   	},
-	//TODO: Need to modifiy this function as it is currently comapring a single value against an array of values
+
   	getEventsUserIsAttending: function(req, res, next) {
   		var user = req.params.username;
 
@@ -105,7 +105,6 @@ module.exports = {
   		});
   	},
 
-	//TODO: Need to modifiy this function as it is currently comapring a single value against an array of values
 
   	getEventUserIsHosting: function(req, res, next) {
   		var user = req.params.username;
