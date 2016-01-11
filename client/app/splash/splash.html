@@ -2,12 +2,21 @@
 Displays the events users have hosting or joined -->
 
 <h1>Splash</h1>
-<div ng-repeat="event in data.events | orderBy:'date'">
+<h4>Hosting</h4>
+<div ng-repeat="hostEvent in data.hosting | orderBy:'date'">
   <div>
-    {{ event.title }}<br />
-    {{ event.description }}<br />
-    {{ event.date }}<br />
-    {{ event.guests }}
+    {{ hostEvent.title }}<br />
+    {{ hostEvent.description }}<br />
+    {{ hostEvent.date }}<br />
+    {{ hostEvent.guests }}
   </div>
 </div>
-
+<h4>Attending</h4>
+<div ng-repeat="guestEvent in data.attending | orderBy:'date'">
+  <div>
+    {{ guestEvent.title }}<br />
+    {{ guestEvent.description }}<br />
+    {{ guestEvent.date }}<br />
+    {{ guestEvent.guests }}
+  </div>
+</div>
