@@ -9,33 +9,33 @@
       <!-- This formatting is used to show a warning to fill in a field -->
       <!-- .$touched is used so there won't be an error until you click in a field -->
       <div ng-show="form.$submitted || form.uTitle.$touched">
-        <div ng-show="form.uTitle.$error.required">Need Title Plox</div>
+        <div ng-show="form.uTitle.$error.required">Title Required</div>
       </div>
 
       Description:
       <input type='text' placeholder='Description' ng-model = 'event.description' name='uDescription' required = ''>
       <br />
       <div ng-show="form.$submitted || form.uDescription.$touched">
-        <div ng-show="form.uDescription.$error.required">Need Description Plox</div>
+        <div ng-show="form.uDescription.$error.required">Description Required</div>
       </div>
 
       Time: 
       <input type="time" name="uTime" placeholder="HH:mm:ss" ng-model = 'event.time' required/>
       <br />
       <div ng-show="form.$submitted || form.uTime.$touched">
-        <div ng-show="form.uTime.$error.required">Need Time Plox</div>
+        <div ng-show="form.uTime.$error.required">Time Required</div>
       </div>
 
       Date:
       <input type="date" name="uDate" placeholder="yyyy-MM-dd" ng-model = 'event.date' required />
       <br />
       <div ng-show="form.$submitted || form.uDate.$touched">
-        <div ng-show="form.Date.$error.required">Need Date Plox</div>
+        <div ng-show="form.uDate.$error.required">Date Required</div>
       </div>
 
 
       Guests #:
-      <select ng-model = 'event.guests' class="1-100">
+      <select name='uGuest' ng-model = 'event.guests' class="1-100" required>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -48,11 +48,20 @@
         <option value="10">10</option>
         <option value="Anyone!">Anyone!</option>
       </select>
+      <div ng-show="form.$submitted || form.uGuest.$touched">
+        <div ng-show="form.uGuest.$error.required">Guest Number Required</div>
+      </div>
+      <br />
 
-      <input placeholder='Address' ng-model = 'event.address'>
-      <input placeholder='City' ng-model = 'event.city'>
-      <input placeholder='State'ng-model = 'event.state'>
-      <input placeholder='Zip' ng-model = 'event.zip'>
+      <input name='uAddress' placeholder='Address' ng-model = 'event.address' required>
+      <input name='uCity' placeholder='City' ng-model = 'event.city' required>
+      <input name='uState' placeholder='State'ng-model = 'event.state' required>
+      <input name='uZip' placeholder='Zip' ng-model = 'event.zip' required>
+      <div ng-show="form.$submitted || form.uAddress.$touched || form.uCity.$touched ||
+       form.uState.$touched || form.uZip.$touched">
+        <div ng-show="form.uAddress.$error.required || form.uCity.$error.required || 
+        form.uState.$error.required || form.uZip.$error.required" >Address Required</div>
+      </div>
     </form>
   </div>
   <!-- Ng-Disabled greys out submit button using ng-Forms 
