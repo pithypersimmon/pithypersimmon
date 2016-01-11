@@ -67,6 +67,8 @@ angular.module('foodbnb.services', [])
   return {
     checkAddress: checkAddress,
     getAll: getAll,
+    getHosting: getHosting,
+    getAttending: getAttending,
     addOne: addOne
   };
 });
