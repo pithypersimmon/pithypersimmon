@@ -25,10 +25,6 @@ angular.module('foodbnb', [
     templateUrl: 'app/host/host.html',
     controller: 'hostCtrl'
   })
-  .when('/guest', {
-    templateUrl: 'app/guest/guest.html',
-    controller: 'guestCtrl'
-  })
   .when('/events', {
     templateUrl: 'app/event/event.html',
     controller: 'eventCtrl'
