@@ -97,7 +97,8 @@ module.exports = {
   	},
 
   	getEventsUserIsAttending: function(req, res, next) {
-  		var user = req.params.username;
+  		// var user = req.params.username;
+      var user = session.email;
 
   		findAllEvents({guests: user}).then(function(events) {
   			if (events) {
@@ -110,7 +111,8 @@ module.exports = {
 
 
   	getEventUserIsHosting: function(req, res, next) {
-  		var user = req.params.username;
+  		//var user = req.params.username;
+      var user = session.email;
 
   		findAllEvents({host: user}).then(function(events) {
   			if (events) {
