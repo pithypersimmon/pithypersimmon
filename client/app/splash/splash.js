@@ -6,6 +6,7 @@ angular.module('foodbnb.splash', [])
   // Events.getAll().then(function (data) {
   //   $scope.data.events = data;
   // });
+  $scope.imageUrl = userObject.imageUrl
   
 
   //Pull down array of events you are hosting
@@ -18,3 +19,4 @@ angular.module('foodbnb.splash', [])
     $scope.data.attending = data;
   });
 });
+

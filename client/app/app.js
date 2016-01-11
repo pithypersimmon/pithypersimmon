@@ -36,3 +36,4 @@ angular.module('foodbnb', [
     redirectTo: '/splash'
   });
 });
+
