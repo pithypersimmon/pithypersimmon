@@ -12,8 +12,13 @@ Search Through all event-->
     When: {{ event.date | date:"MM/dd/yyyy 'at' h:mma"}}<br />
     Where: {{ event.address }}<br />
     {{ event.city + ', ' + event.state + ' ' + event.zip}}<br />
-    Seats: {{ event.guests }}<br /><br />
-    {{ event.description }}<br /><br />
-    <button ng-click='joinAnEvent(event._id);'>Attend Event</button>
+    <!-- Guests: {{ event.guests }}<br /> -->
+    Guests:
+    <ul>
+      <li ng-repeat="guest in event.guests"> {{ guest }}</li>
+    </ul>
+    Seats Remaining: {{event.guestsCap - event.guests.length}}<br />
+    {{ event.description }}<br />
+    <button ng-click='joinAnEvent(event._id);'>Attend Event</button><br /><br />
   </div>
 </div>
