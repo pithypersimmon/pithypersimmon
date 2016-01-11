@@ -21,7 +21,9 @@ module.exports = {
   addEvent: function(req, res, next){
   	console.log("SESSION:", session)
     console.log(req.body);
-  	var host = session.email
+  	//TODO: replace
+    // var host = session.email
+    var host = req.body.username;
     var title= req.body.title;
     var description = req.body.description;
     var time = req.body.time;
@@ -31,9 +33,7 @@ module.exports = {
     var city = req.body.city;
     var state = req.body.state;
     var zip = req.body.zip;
-  	//Not sure where username is coming from. Dont see it in POST data.
-    //var username = req.body.username;
-
+  	
 
 		createEvent({
 			//TODO: I have commented out the Host field for now. I have an idea of how to save host name and will implement soon
@@ -72,8 +72,9 @@ module.exports = {
 
 	//puts user in event guests array
 	addUserToEvent: function(req, res, next) {
-		// var user = req.body.username;
-    var user = session.email;
+    //REPLACE
+    // var user = session.email;
+		var user = req.body.email;
 		var id = req.params.id;
 		
 		Event.findOne({ _id: id }).then(function(event){
@@ -99,6 +100,7 @@ module.exports = {
 
   	getEventsUserIsAttending: function(req, res, next) {
   		// var user = req.params.username;
+      //REPLACE
       var user = session.email;
 
   		findAllEvents({guests: user}).then(function(events) {
@@ -113,6 +115,7 @@ module.exports = {
 
   	getEventUserIsHosting: function(req, res, next) {
   		//var user = req.params.username;
+      //REPLACE
       var user = session.email;
 
   		findAllEvents({host: user}).then(function(events) {

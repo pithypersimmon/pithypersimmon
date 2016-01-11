@@ -1,6 +1,8 @@
 angular.module('foodbnb.event', [])
 .controller('eventCtrl', function ($scope, Events) {
   $scope.data = {};
+  $scope.userObject = JSON.parse(localStorage.getItem('user'));
+  
   $scope.id;
 
   var initializeEvents = function() {
@@ -18,7 +20,7 @@ angular.module('foodbnb.event', [])
   }
 
   $scope.joinAnEvent = function(id) {
-    Events.joinEvent(id);
+    Events.joinEvent(id, $scope.userObject);
     initializeEvents();
   };
 

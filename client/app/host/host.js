@@ -3,6 +3,9 @@
 angular.module('foodbnb.host', [])
 .controller('hostCtrl', function ($scope, Events) {
   $scope.event = {};
+  var userObject = JSON.parse(localStorage.getItem('user'));
+  console.log("USER OBJECT");
+  $scope.event.username = userObject.email;
   $scope.newEvent = function (){
     console.log($scope.event);
 
