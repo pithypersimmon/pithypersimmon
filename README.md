@@ -53,3 +53,14 @@ Log in is handled by Google's OpenId Connect System. The log in button lives on 
 | ------------- |------------:|
 | `signin` | Takes in req data from google login and looks for the user or create a new user in the database. Creates a JWT token and send it back to the client |
 | `checkAuth` | Takes in a token and detokenizes the data to return the user data. It then queries the database for that user |
+
+### Event Controller
+
+| Function        |  Description  |
+| ------------- |------------:|
+| `allEvents` | Makes a db query to find all events |
+| `addEvent` | Takes in req form data and adds a new event to the database |
+| `oneEvent` | Takes in a id and searches the database for an event by id |
+| `addUserToEvent` | Takes in an id Param and user data. Queries the database for the event by Id and pushes the user to its guests property |
+| `getEventsUserIsAttending` | Takes in user data and queries all Events where user is in the guests array |
+| `getEventUserIsHosting` | Takes in user data and queries all Events where user is in the host property |
