@@ -2,7 +2,7 @@ var Event = require('./eventModel.js');
     Q = require('q');
     util = require('../config/utils.js');
 
-var session = require("../session")
+//var session = require("../session")
 var createEvent = Q.nbind(Event.create, Event);
 var findAllEvents = Q.nbind(Event.find, Event);
 var findAnEvent = Q.nbind(Event.findOne, Event);
@@ -19,10 +19,6 @@ module.exports = {
   },
 
   addEvent: function(req, res, next){
-  	console.log("SESSION:", session)
-    console.log(req.body);
-  	//TODO: replace
-    // var host = session.email
     var host = req.body.username;
     var title= req.body.title;
     var description = req.body.description;
@@ -36,7 +32,6 @@ module.exports = {
   	
 
 		createEvent({
-			//TODO: I have commented out the Host field for now. I have an idea of how to save host name and will implement soon
 			host: host,
 			title: title,
 			description: description,
@@ -60,6 +55,7 @@ module.exports = {
 	//info for a specific event
 	oneEvent: function(req, res, next) {
 		var id = req.params.id;
+
 		findAnEvent({_id: id})
 		.then(function(event){
 			res.json(event);
@@ -72,8 +68,6 @@ module.exports = {
 
 	//puts user in event guests array
 	addUserToEvent: function(req, res, next) {
-    //REPLACE
-    // var user = session.email;
 		var user = req.body.email;
 		var id = req.params.id;
 		
@@ -99,10 +93,8 @@ module.exports = {
   	},
 
   	getEventsUserIsAttending: function(req, res, next) {
-  		// var user = req.params.username;
-      //REPLACE
-      var user = session.email;
-
+  		var user = req.params.username;
+      
   		findAllEvents({guests: user}).then(function(events) {
   			if (events) {
   				res.json(events);
@@ -114,9 +106,7 @@ module.exports = {
 
 
   	getEventUserIsHosting: function(req, res, next) {
-  		//var user = req.params.username;
-      //REPLACE
-      var user = session.email;
+  		var user = req.params.username;
 
   		findAllEvents({host: user}).then(function(events) {
   			if (events) {

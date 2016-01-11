@@ -25,19 +25,19 @@ angular.module('foodbnb.services', [])
     });
   };
 
-  var getHosting = function() {
+  var getHosting = function(username) {
     return $http({
       method: 'GET',
-      url: '/api/events/hosting/:username'
+      url: '/api/events/hosting/' + username
     }).then(function (res) {
       return res.data;
     });
   };
 
-  var getAttending = function() {
+  var getAttending = function(username) {
     return $http({
       method: 'GET',
-      url: '/api/events/attending/:username'
+      url: '/api/events/attending/' + username
     }).then(function (res) {
       return res.data;
     });
