@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)http://localhost:8080/#/splash -->
+<html ng-app="foodbnb" class="ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="871001423972-irhs56qgtkjv017j6915j70edubsmna2.apps.googleusercontent.com">
+    <script src="./FoodBnb_files/cb=gapi.loaded_0" async=""></script><script src="./FoodBnb_files/platform.js" async="" defer="" gapi_processed="true"></script>
+    <script src="./FoodBnb_files/jquery.min.js"></script>
+    <link rel="stylesheet" href="./FoodBnb_files/bootstrap.min.css" type="text/css">
+    <link href="./FoodBnb_files/css" rel="stylesheet" type="text/css">
+    <link href="./FoodBnb_files/css(1)" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./FoodBnb_files/animate.min.css" type="text/css">
+    <link rel="stylesheet" href="./FoodBnb_files/creative.css" type="text/css">
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./FoodBnb_files/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="./FoodBnb_files/jquery.easing.min.js"></script>
+    <script src="./FoodBnb_files/jquery.fittext.js"></script>
+    <script src="./FoodBnb_files/wow.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="./FoodBnb_files/creative.js"></script>
+
+
+
+    <title>FoodBnb</title>
+    <link rel="stylesheet" type="text/css" href="./FoodBnb_files/styles.css">
+    <script>
+
+      //** TODO: Using Google Sign in using OpenID
+      function onSignIn(googleUser) {
+        console.log("HERE")
+        /* TODO: Useful data for your client-side scripts. Just Logging in console to view data.
+
+         TODO: ***COMMENT OUT THIS BLOCK BEFORE PRODUCTION ***//////////////////////////////////////////////
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId());
+        console.log("Name: " + profile.getName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        //*** ACTUAL POST Request to server with google user data.
+        var data = {"IdToken": profile.getId(), "name": profile.getName(), "imageUrl": profile.getImageUrl(), "email": profile.getEmail()};
+        jQuery.support.cors = true;
+        $.ajax({
+          type: "POST",
+          url: "http://localhost:8080/api/users/signin",
+          contentType: 'application/json',
+          data: JSON.stringify(data),
+          success: function(data){
+
+            // console.log("YAY!!!!", data);
+            // on successful google verification, return basic user and jwt token
+            var dataString = JSON.stringify(data);
+            localStorage.setItem('user', dataString);
+
+            // quick test to verify localStorage data
+            // var parsedString = JSON.parse(localStorage.user);
+            // console.log('loc: ', parsedString);
+
+            console.log("YAY!!!!")
+            $('html,body').animate({scrollTop: $("#scroll").offset().top}, "slow")
+
+          }
+        });
+
+        //Google logout that logs user directly out of google and redirects to index
+        var logout = function(){
+          document.location.href = "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost:8080";
+        }
+
+        $( "#logout" ).on( "click", function() {
+          logout()
+        });
+
+      };
+
+    </script>
+  <style>.abcRioButton{-webkit-border-radius:1px;border-radius:1px;-webkit-box-shadow 0 2px 4px 0px rgba(0,0,0,.25);box-shadow:0 2px 4px 0 rgba(0,0,0,.25);-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-transition:background-color .218s,border-color .218s,box-shadow .218s;transition:background-color .218s,border-color .218s,box-shadow .218s;-webkit-user-select:none;-webkit-appearance:none;background-color:#fff;background-image:none;color:#262626;cursor:pointer;outline:none;overflow:hidden;position:relative;text-align:center;vertical-align:middle;white-space:nowrap;width:auto}.abcRioButton:hover{-webkit-box-shadow:0 0 3px 3px rgba(66,133,244,.3);box-shadow:0 0 3px 3px rgba(66,133,244,.3)}.abcRioButtonRed,.abcRioButtonBlue{border:none;color:#fff}.abcRioButtonRed{background-color:#dc4e41}.abcRioButtonRed:active{background-color:#c53829}.abcRioButtonBlue{background-color:#4285f4}.abcRioButtonBlue:hover{background-color:#4285f4}.abcRioButtonBlue:active{background-color:#3367d6}.abcRioButtonLightBlue{background-color:#fff;color:#757575}.abcRioButtonLightBlue:active{background-color:#eee;color:#6d6d6d}.abcRioButtonWhite{background-color:#fff;color:#dc4e41}.abcRioButtonWhite:active{background-color:#eee}.abcRioButtonWhite path{fill:#dc4e41}.abcRioButtonIcon{float:left}.abcRioButtonBlue .abcRioButtonIcon{background-color:#fff;-webkit-border-radius:1px;border-radius:1px}.abcRioButtonSvg{display:block}.abcRioButtonContents{font-family:Roboto,arial,sans-serif;font-size:14px;font-weight:500;letter-spacing:.21px;margin-left:6px;margin-right:6px;vertical-align:top}.abcRioButtonContentWrapper{height:100%;width:100%}.abcRioButtonGreen .abcRioButtonContentWrapper,.abcRioButtonRed .abcRioButtonContentWrapper,.abcRioButtonBlue .abcRioButtonContentWrapper,.abcRioButtonDarkGray .abcRioButtonContentWrapper,.abcRioButtonGrayedOut .abcRioButtonContentWrapper{border:1px solid transparent}.abcRioButtonErrorWrapper,.abcRioButtonWorkingWrapper{display:none;height:100%;width:100%}.abcRioButtonErrorIcon,.abcRioButtonWorkingIcon{margin-left:auto;margin-right:auto}.abcRioButtonErrorState,.abcRioButtonWorkingState{border:1px solid #d5d5d5;border:1px solid rgba(0,0,0,.17);-webkit-box-shadow:0 1px 0 rgba(0,0,0,.05);box-shadow:0 1px 0 rgba(0,0,0,.05);color:#262626}.abcRioButtonErrorState:hover,.abcRioButtonWorkingState:hover{border:1px solid #aaa;border:1px solid rgba(0,0,0,.25);-webkit-box-shadow:0 1px 0 rgba(0,0,0,.1);box-shadow:0 1px 0 rgba(0,0,0,.1)}.abcRioButtonErrorState:active,.abcRioButtonWorkingState:active{border:1px solid #aaa;border:1px solid rgba(0,0,0,.25);-webkit-box-shadow:inset 0 1px 0 #ddd;box-shadow:inset 0 1px 0 #ddd;color:#262626}.abcRioButtonWorkingState,.abcRioButtonWorkingState:hover{background-color:#f5f5f5}.abcRioButtonWorkingState:active{background-color:#e5e5e5}.abcRioButtonErrorState,.abcRioButtonErrorState:hover{background-color:#fff}.abcRioButtonErrorState:active{background-color:#e5e5e5}.abcRioButtonWorkingState .abcRioButtonWorkingWrapper,.abcRioButtonErrorState .abcRioButtonErrorWrapper{display:block}.abcRioButtonErrorState .abcRioButtonContentWrapper,.abcRioButtonWorkingState .abcRioButtonContentWrapper,.abcRioButtonErrorState .abcRioButtonWorkingWrapper{display:none}.-webkit-keyframes abcRioButtonWorkingIconPathSpinKeyframes{0%{-webkit-transform:rotate(0)}} </style></head>
+  <body id="page-top">
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand page-scroll" href="http://localhost:8080/#page-top">FoodBnB</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a class="page-scroll" href="./FoodBnb_files/FoodBnb.html">Home</a>
+            </li>
+            <li>
+              <a class="page-scroll" href="http://localhost:8080/#/events">Events</a>
+            </li>
+            <li>
+              <a class="page-scroll" href="http://localhost:8080/#/host">Host</a>
+            </li>
+            <li>
+              <a id="logout" href="http://localhost:8080/#">Logout</a>
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+
+    <header>
+      <div class="header-content">
+        <div class="header-content-inner">
+          <h1>FoodBnB</h1>
+          <hr>
+          <p>Grab a homecooked meal away from home!</p>
+          <div style="margin-left: 43%;" class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" data-gapiscan="true" data-onload="true"><div style="height:36px;width:120px;" class="abcRioButton abcRioButtonBlue"><div class="abcRioButtonContentWrapper"><div class="abcRioButtonIcon" style="padding:8px"><div style="width:18px;height:18px;" class="abcRioButtonSvgImageWithFallback abcRioButtonIconImage abcRioButtonIconImage18"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 48 48" class="abcRioButtonSvg"><g><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path><path fill="none" d="M0 0h48v48H0z"></path></g></svg></div></div><span style="font-size:13px;line-height:34px;" class="abcRioButtonContents"><span id="not_signed_in1z5wpt2i91q2" style="display: none;">Sign in</span><span id="connected1z5wpt2i91q2">Signed in</span></span></div></div></div>
+        </div>
+      </div>
+    </header>
+    <section id="scroll">
+      <!-- ngView:  --><div style="height: 2000px" ng-view="" class="ng-scope"><!--Home Page
+Displays the events users have hosting or joined -->
+<!--<div class="container" style="background:silver">-->
+  <!--<h1>Splash</h1>-->
+  <div class="col-lg-12 ng-scope" style="padding-left: 100px">
+    <div id="hostingBackground">
+    <h1 class="silver">Hosting</h1><br>
+    <!-- ngRepeat: hostEvent in data.hosting | orderBy:'date' | date :'MM/dd/yyyy' --><div ng-repeat="hostEvent in data.hosting | orderBy:&#39;date&#39; | date :&#39;MM/dd/yyyy&#39;" class="ng-scope">
+      <div class="white ng-binding">
+        Event: qwe<br>
+        Description: qwe1q<br>
+        Event Date: <span ng-bind="hostEvent.date | date:&#39;MM/dd/yyyy&#39;" class="ng-binding">12/12/1223</span><br>
+        Guests Attending: []<br><br>
+      </div>
+    </div><!-- end ngRepeat: hostEvent in data.hosting | orderBy:'date' | date :'MM/dd/yyyy' --><div ng-repeat="hostEvent in data.hosting | orderBy:&#39;date&#39; | date :&#39;MM/dd/yyyy&#39;" class="ng-scope">
+      <div class="white ng-binding">
+        Event: test<br>
+        Description: test<br>
+        Event Date: <span ng-bind="hostEvent.date | date:&#39;MM/dd/yyyy&#39;" class="ng-binding">12/11/2018</span><br>
+        Guests Attending: []<br><br>
+      </div>
+    </div><!-- end ngRepeat: hostEvent in data.hosting | orderBy:'date' | date :'MM/dd/yyyy' --><div ng-repeat="hostEvent in data.hosting | orderBy:&#39;date&#39; | date :&#39;MM/dd/yyyy&#39;" class="ng-scope">
+      <div class="white ng-binding">
+        Event: Testing Party<br>
+        Description: a test party<br>
+        Event Date: <span ng-bind="hostEvent.date | date:&#39;MM/dd/yyyy&#39;" class="ng-binding">12/13/2018</span><br>
+        Guests Attending: []<br><br>
+      </div>
+    </div><!-- end ngRepeat: hostEvent in data.hosting | orderBy:'date' | date :'MM/dd/yyyy' --><br>
+    </div>
+    <div style="background: grey; width: 1000px; padding: 50px">
+      <h3>Attending</h3>
+      <!-- ngRepeat: guestEvent in data.attending | orderBy:'date' --><div ng-repeat="guestEvent in data.attending | orderBy:&#39;date&#39;" class="ng-scope">
+        <div class="white ng-binding">
+          Event: A test Party<br>
+          Description: a test party<br>
+          Event Date: <span ng-bind="guestEvent.date | date:&#39;MM/dd/yyyy&#39;" class="ng-binding">12/13/2017</span><br>
+          Guestes Attending: ["jphuangjr@gmail.com"]
+        </div>
+      </div><!-- end ngRepeat: guestEvent in data.attending | orderBy:'date' -->
+    </div>
+  </div>
+<!--</div>--></div>
+    </section>
+
+
+    <script src="./FoodBnb_files/angular.js"></script>
+    <script src="./FoodBnb_files/angular-route.js"></script>
+
+    <script src="./FoodBnb_files/auth.js"></script>
+    <script src="./FoodBnb_files/event.js"></script>
+    <script src="./FoodBnb_files/guest.js"></script>
+    <script src="./FoodBnb_files/host.js"></script>
+    <script src="./FoodBnb_files/services.js"></script>
+    <script src="./FoodBnb_files/splash.js"></script>
+    <script src="./FoodBnb_files/app.js"></script>
+  
+<iframe style="position: absolute; width: 1px; height: 1px; left: -9999px;" id="ssIFrame_google" sandbox="allow-scripts allow-same-origin" src="./FoodBnb_files/iframe.html"></iframe></body></html>
