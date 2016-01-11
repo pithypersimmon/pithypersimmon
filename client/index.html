@@ -10,20 +10,19 @@
     <title>FoodBnb</title>
     <link rel="stylesheet" type="text/css" href="styles/styles.css" />
     <script>
-//      var request = require("request");
-      //** Using Google Sign in using OpenID
+      //** TODO: Using Google Sign in using OpenID
       function onSignIn(googleUser) {
         console.log("HERE")
-        // Useful data for your client-side scripts. Just Logging in console to view data.
+        /* TODO: Useful data for your client-side scripts. Just Logging in console to view data.
+
+         TODO: ***COMMENT OUT THIS BLOCK BEFORE PRODUCTION ***//////////////////////////////////////////////
         var profile = googleUser.getBasicProfile();
-        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log("ID: " + profile.getId());
         console.log("Name: " + profile.getName());
         console.log("Image URL: " + profile.getImageUrl());
         console.log("Email: " + profile.getEmail());
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        // The ID token you need to pass to your backend:
-        var id_token = googleUser.getAuthResponse().id_token;
-        console.log("ID Token: " + id_token);
         //*** ACTUAL POST Request to server with google user data.
         var data = {"IdToken": profile.getId(), "name": profile.getName(), "imageUrl": profile.getImageUrl(), "email": profile.getEmail()};
         jQuery.support.cors = true;
@@ -37,6 +36,7 @@
           }
         });
 
+        //Google logout that logs user directly out of google and redirects to index
         var logout = function(){
           document.location.href = "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost:8080";
         }
