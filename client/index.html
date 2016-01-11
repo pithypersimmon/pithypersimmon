@@ -32,7 +32,14 @@
           contentType: 'application/json',
           data: JSON.stringify(data),
           success: function(data){
-            console.log("YAY!!!!")
+            // console.log("YAY!!!!", data);
+            // on successful google verification, return basic user and jwt token
+            var dataString = JSON.stringify(data);
+            localStorage.setItem('user', dataString);
+
+            // quick test to verify localStorage data
+            // var parsedString = JSON.parse(localStorage.user);
+            // console.log('loc: ', parsedString);
           }
         });
 
