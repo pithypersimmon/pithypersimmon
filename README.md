@@ -46,3 +46,10 @@
 ### Google OAuth OpenId Connect
 Log in is handled by Google's OpenId Connect System. The log in button lives on the index and google serves a javascript callback and activates onSignIn after sucessful signin. User data is then passed into the server via a post request which queries the database of the user or creates them. This user data is passed to JWT to be tokenized before being passed back to the client side to be stored as a session.
 
+# Server Side Controllers
+### User Controller
+
+| Function        |  Description  |
+| ------------- |------------:|
+| `signin` | Takes in req data from google login and looks for the user or create a new user in the database. Creates a JWT token and send it back to the client |
+| `checkAuth` | Takes in a token and detokenizes the data to return the user data. It then queries the database for that user |
