@@ -11,27 +11,6 @@ angular.module('foodbnb.services', [])
 
 .factory('Login', function ($http) {
 
-  var checkAuth = function() {
-    // grab user token from localStorage
-    var user = JSON.parse(localStorage.getItem('user'));
-
-    // API expects token in the headers
-    return $http({
-      method: 'GET',
-      url: '/api/users/signedin',
-      headers: { 'x-access-token' : user.token }
-    })
-    .then(function (res) {
-      return res.data;
-    })
-    .catch(function(error) {
-      console.error(error);
-    });
-  };
-
-  return {
-    checkAuth: checkAuth
-  };
 })
 
 // Service to handle event methods
@@ -62,7 +41,7 @@ angular.module('foodbnb.services', [])
     }).then(function (res) {
       return res.data;
     });
-  };
+  };  
 
 
   // Add event

@@ -66,9 +66,9 @@ module.exports = {
       findUser({email: user.email})
         .then(function (foundUser) {
           if (foundUser) {
-            res.json({ auth: true});
+            res.send(200);
           } else {
-            res.json({ auth: false});
+            res.send(401);
           }
         })
         .fail(function (error) {
