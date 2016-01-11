@@ -60,11 +60,12 @@ angular.module('foodbnb.services', [])
         address + "&key=AIzaSyD9kDPxH-z7bQ8RyALVYDjNxWn5Xsd7ilg"
     }).then(function (res) {
       //res.status will return OK if the address is valid
-      return res.status;
+      return res.data.results[0].geometry.location_type;
     });
   };
 
   return {
+    checkAddress: checkAddress,
     getAll: getAll,
     addOne: addOne
   };
