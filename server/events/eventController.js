@@ -72,7 +72,8 @@ module.exports = {
 
 	//puts user in event guests array
 	addUserToEvent: function(req, res, next) {
-		var user = req.body.username;
+		// var user = req.body.username;
+    var user = session.email;
 		var id = req.params.id;
 		
 		Event.findOne({ _id: id }).then(function(event){

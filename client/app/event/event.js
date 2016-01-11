@@ -1,6 +1,7 @@
 angular.module('foodbnb.event', [])
 .controller('eventCtrl', function ($scope, Events) {
   $scope.data = {};
+  $scope.id;
 
   var initializeEvents = function() {
     Events.getAll()
@@ -12,5 +13,14 @@ angular.module('foodbnb.event', [])
         console.error(error);
       });
   };
+  $scope.storeId = function () {
+    $scope.id = $scope.event._id;
+  }
+
+  $scope.joinAnEvent = function(id) {
+    Events.joinEvent(id);
+    initializeEvents();
+  };
+
   initializeEvents();
 });
