@@ -1,17 +1,22 @@
+//Hosting Form Page
+
 angular.module('foodbnb.host', [])
 .controller('hostCtrl', function ($scope, Events) {
   $scope.event = {};
   $scope.newEvent = function (){
     console.log($scope.event);
 
+    /*Concatenates and replaces space with plus signs to 
+    create a complete address for google geocode api*/
     var address = "" + $scope.event.address + "+" + $scope.event.city + 
     "+" + $scope.event.state + "+" + $scope.event.zip;
     address = address.replace(/ /g,"+");
     
-    //Validate Address before adding
+    //Checks validity of address before calling Events.addOne
+    //Look at services if you're confused
     Events.checkAddress(address)
     .then(function (response) {
-      console.log("Address Response: ", response);
+      console.log("Address Response: ", response);  
       if (response !== 'ROOFTOP') {
         console.log("Invalid Address");
         return false;
