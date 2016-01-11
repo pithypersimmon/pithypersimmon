@@ -4,6 +4,9 @@ Search Through all event-->
 <h1>Event</h1>
 <div ng-repeat="event in data.events | orderBy:'date'">
   <div>
+  <!-- This Link is used to join an event 
+        Eventually this will be used to go to an individual event page -->
+
     <a ng-href="/#/event/{{ event._id }}">{{ event.title }}</a><br />
     Host: {{ event.host }} <br>
     When: {{ event.date | date:"MM/dd/yyyy 'at' h:mma"}}<br />
