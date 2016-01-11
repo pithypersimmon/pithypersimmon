@@ -12,6 +12,10 @@
 | `GET` | /api/events/attending/:username | Return all events that a particular user is attending. Username must be passed in as the last part of the URL path. Username is obtained from accessing session.name. |
 | `GET` | /api/events/hosting/:username | Return all events that a particular user is hosting. Username must be passed in as the last part of the URL path. Username is obtained from accessing session.name. |
 
+# Login
+
+### Google OAuth OpenId Connect
+Log in is handled by Google's OpenId Connect System. The log in button lives on the index and google serves a javascript callback and activates onSignIn after sucessful signin. User data is then passed into the server via a post request which queries the database of the user or creates them. This user data is passed to JWT to be tokenized before being passed back to the client side to be stored as a session.
 
 # Schema's
 
@@ -40,11 +44,6 @@
 	    zip: Number,		 //Event's Zip code
 	    host: String		 //Name of the user hosting the event
     }
-
-# Login
-
-### Google OAuth OpenId Connect
-Log in is handled by Google's OpenId Connect System. The log in button lives on the index and google serves a javascript callback and activates onSignIn after sucessful signin. User data is then passed into the server via a post request which queries the database of the user or creates them. This user data is passed to JWT to be tokenized before being passed back to the client side to be stored as a session.
 
 # Server Side Controllers
 ### User Controller
