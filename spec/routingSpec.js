@@ -14,11 +14,11 @@ describe('Routing', function () {
     expect($route.routes['/login'].templateUrl).to.equal('app/auth/login.html');
   });
 
-  // it('Should have /signin route, template, and controller', function () {
-  //   expect($route.routes['/signin']).to.be.defined;
-  //   expect($route.routes['/signin'].controller).to.equal('AuthController');
-  //   expect($route.routes['/signin'].templateUrl).to.equal('app/auth/signin.html');
-  // });
+  it('Should have /splash route, template, and controller', function () {
+    expect($route.routes['/splash']).to.be.defined;
+    expect($route.routes['/splash'].controller).to.equal('splashCtrl');
+    expect($route.routes['/splash'].templateUrl).to.equal('app/splash/splash.html');
+  });
 
   // it('Should have /links route, template, and controller', function () {
   //   expect($route.routes['/links']).to.be.defined;
