@@ -2,6 +2,7 @@
 <div ng-repeat="event in data.events | orderBy:'date'">
   <div>
     <a ng-href="/#/event/{{ event._id }}">{{ event.title }}</a><br />
+    Host: {{ event.host }} <br>
     When: {{ event.date | date:"MM/dd/yyyy 'at' h:mma"}}<br />
     Where: {{ event.address }}<br />
     {{ event.city + ', ' + event.state + ' ' + event.zip}}<br />

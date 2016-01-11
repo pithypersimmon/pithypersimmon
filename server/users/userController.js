@@ -2,6 +2,8 @@ var User = require('./userModel.js');
     Q = require('q');
     jwt = require('jwt-simple');
 
+var session = require("../session")
+
 var findUser = Q.nbind(User.findOne, User);
 var createUser = Q.nbind(User.create, User);
 
@@ -12,6 +14,12 @@ module.exports = {
     var IdToken = req.body.IdToken;
     var name = req.body.name;
     var imageUrl = req.body.imageUrl;
+
+    session.name = req.body.name;
+    session.imageUrl = req.body.imageUrl;
+    session.email = req.body.email;
+    session.loggedIn = true;
+
 
     //** Queries Database and looks for User
     findUser({IdToken: IdToken})

@@ -53,7 +53,6 @@ var EventSchema = new mongoose.Schema({
     type: String
   },
 
-
   guests: {
     type: Array
   },

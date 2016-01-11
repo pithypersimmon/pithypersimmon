@@ -2,6 +2,7 @@ var Event = require('./eventModel.js');
     Q = require('q');
     util = require('../config/utils.js');
 
+var session = require("../session")
 var createEvent = Q.nbind(Event.create, Event);
 var findAllEvents = Q.nbind(Event.find, Event);
 var findAnEvent = Q.nbind(Event.findOne, Event);
@@ -18,7 +19,9 @@ module.exports = {
   },
 
   addEvent: function(req, res, next){
+  	console.log("SESSION:", session)
     console.log(req.body);
+  	var host = session.email
     var title= req.body.title;
     var description = req.body.description;
     var time = req.body.time;
@@ -34,7 +37,7 @@ module.exports = {
 
 		createEvent({
 			//TODO: I have commented out the Host field for now. I have an idea of how to save host name and will implement soon
-			//host: username,
+			host: host,
 			title: title,
 			description: description,
 			time: time,
