@@ -14,6 +14,7 @@ module.exports = {
     var IdToken = req.body.IdToken;
     var name = req.body.name;
     var imageUrl = req.body.imageUrl;
+    var email = req.body.email;
 
     session.name = req.body.name;
     session.imageUrl = req.body.imageUrl;
@@ -39,7 +40,12 @@ module.exports = {
       .then(function (user) {
       //** create token to send back for auth. Jwt is a JSON Web Toke Encoder
         var token = jwt.encode(user, 'secret');
-        res.json({token: token});
+        res.json({
+          token: token,
+          name: name,
+          imageUrl: imageUrl,
+          email: email
+        });
       })
       .fail(function (error) {
         next(error);
