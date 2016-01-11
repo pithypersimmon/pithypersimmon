@@ -14,5 +14,6 @@ Search Through all event-->
     {{ event.city + ', ' + event.state + ' ' + event.zip}}<br />
     Seats: {{ event.guests }}<br /><br />
     {{ event.description }}<br /><br />
+    <button ng-click='joinAnEvent(event._id);'>Attend Event</button>
   </div>
 </div>

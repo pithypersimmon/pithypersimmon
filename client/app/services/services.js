@@ -53,6 +53,14 @@ angular.module('foodbnb.services', [])
     });
   };
 
+  var joinEvent = function(id) {
+    return $http({
+      method: 'PUT',
+      url: '/api/events/' + id,
+      data: {}
+    });
+  };
+
   var checkAddress = function (address) {
     return $http({
       method: 'GET',
@@ -69,6 +77,7 @@ angular.module('foodbnb.services', [])
     getAll: getAll,
     getHosting: getHosting,
     getAttending: getAttending,
-    addOne: addOne
+    addOne: addOne,
+    joinEvent: joinEvent
   };
 });
