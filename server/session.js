@@ -1,3 +1,5 @@
+//HOLDS THE NON SENSITIVE USER DATA AFTER GOOGLE LOGIN
+
 var session = {
     name: "",
     imageUrl: "",
