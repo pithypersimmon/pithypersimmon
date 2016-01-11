@@ -1,7 +1,7 @@
 # pithypersimmon
 > The concept of our greenfield project was to create an airbnb for food. People that like to cook or want to make a couple extra bucks can host meals they cook at their pad. People looking for a homecooked meal will be able to see these hosted dinners and grab a bite to eat. Our project is currently built on a full MEAN stack with google OAUTH OpenId connect as the login.
 
-# EndPoints Overview
+# RESTful Routes Endpoints Overview
 
 | Method        | Endpoint      | Description  |
 | ------------- |:-------------:| ------------:|
