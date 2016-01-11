@@ -21,7 +21,7 @@ module.exports = {
   addEvent: function(req, res, next){
   	console.log("SESSION:", session)
     console.log(req.body);
-  	var host = session.name
+  	var host = session.email
     var title= req.body.title;
     var description = req.body.description;
     var time = req.body.time;
