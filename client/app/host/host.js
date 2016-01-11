@@ -3,8 +3,16 @@
 angular.module('foodbnb.host', [])
 .controller('hostCtrl', function ($scope, Events) {
   $scope.event = {};
+
   var userObject = JSON.parse(localStorage.getItem('user'));
   $scope.event.username = userObject.email;
+  $scope.resetForm = function () {
+    console.log("Reset");
+    //Scroll to the top of the page
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+
+    $scope.$broadcast('show-errors-reset');
+  };
   $scope.newEvent = function (){
     console.log($scope.event);
 
@@ -21,6 +29,10 @@ angular.module('foodbnb.host', [])
       console.log("Address Response: ", response);  
       if (response !== 'ROOFTOP') {
         console.log("Invalid Address");
+        //Apply Style to all addresses
+        $('.address').toggleClass('has-error');
+        $("<div class= 'has-error'><p class='help-block'>Invalid Address</p></div>").insertAfter('.guests');
+
         return false;
       } else {
         return true;
@@ -44,6 +56,48 @@ angular.module('foodbnb.host', [])
   };
 
   
+
+}).
+directive('showErrors', function ($timeout) {
+  return {
+    // Uses Attribute to match directive
+    restrict: 'A',
+    require:  '^form',
+    link: function (scope, el, attrs, formCtrl) {
+      // find the text box element, which has the 'name' attribute
+      var inputEl   = el[0].querySelector("[name]");
+      // convert the native text box element to an angular element
+      var inputNgEl = angular.element(inputEl);
+      // get the name on the text box so we know the property to check
+      // on the form controller
+      var inputName = inputNgEl.attr('name');
+
+      // only apply the has-error class after the user leaves the text box
+      inputNgEl.bind('blur', function() {
+        el.toggleClass('has-error', formCtrl[inputName].$invalid);
+      });
+
+      //Event Listener to Reset Fields
+      scope.$on('show-errors-reset', function() {
+        console.log("Listener Activated");
+        
+        //Using elem  
+        el.children()[0].value = '';
+        $timeout(function() {
+          el.removeClass('has-error');
+        }, 0, false);
+        
+      });
+
+      //Event Listener to toggle all validity checks
+      scope.$on('show-errors-check-validity', function() {
+        el.toggleClass('has-error', formCtrl[inputName].$invalid);
+      });
+
+
+    }
+
+  };
 });
 
 
