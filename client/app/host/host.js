@@ -31,10 +31,19 @@ angular.module('foodbnb.host', [])
         Events.addOne($scope.event)
         .then(function (response) {
           if (response) console.log("Successful Post");   
+          clearFields();
         }); 
       }
     });  
   };
+
+  var clearFields = function () {
+    for (var prop in $scope.event) {
+      $scope.event[prop] = "";
+    }
+  };
+
+  
 });
 
 
