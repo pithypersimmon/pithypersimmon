@@ -1,8 +1,6 @@
 # pithypersimmon
 
 
-Welcome to the pithypersimmon wiki!
-
 # EndPoints Overview
 
 | Method        | Endpoint      | Description  |
