@@ -29,7 +29,7 @@ angular.module('foodbnb', [
     templateUrl: 'app/guest/guest.html',
     controller: 'guestCtrl'
   })
-  .when('/event', {
+  .when('/events', {
     templateUrl: 'app/event/event.html',
     controller: 'eventCtrl'
   }).otherwise({
