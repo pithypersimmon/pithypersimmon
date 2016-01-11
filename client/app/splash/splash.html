@@ -1,26 +1,30 @@
 <!--Home Page
 Displays the events users have hosting or joined -->
-<div class="container">
-  <h1>Splash</h1>
-  <div class="col-lg-6" >
-
-    <h3>Hosting</h3><br>
+<!--<div class="container" style="background:silver">-->
+  <!--<h1>Splash</h1>-->
+  <div class="col-lg-12" style="padding-left: 100px" >
+    <div id="hostingBackground">
+    <h1 class="red">Hosting</h1><br>
     <div ng-repeat="hostEvent in data.hosting | orderBy:'date' | date :'MM/dd/yyyy'">
-      <div>
+      <div class="white">
         Event: {{ hostEvent.title }}<br />
         Description: {{ hostEvent.description }}<br />
         Event Date: <span ng-bind="hostEvent.date | date:'MM/dd/yyyy'"></span><br>
-        Guests Attending: {{ hostEvent.guests }}
+        Guests Attending: {{ hostEvent.guests }}<br><br>
       </div>
     </div><br>
-    <h3>Attending</h3>
-    <div ng-repeat="guestEvent in data.attending | orderBy:'date'">
-      <div>
-        Event: {{ guestEvent.title }}<br />
-        Description: {{ guestEvent.description }}<br />
-        Event Date: <span ng-bind="guestEvent.date | date:'MM/dd/yyyy'"></span><br />
-        Guestes Attending: {{ guestEvent.guests }}
+    </div>
+
+    <div id="attendingBackground">
+      <h1 class="red">Attending</h1>
+      <div ng-repeat="guestEvent in data.attending | orderBy:'date'">
+        <div>
+          Event: {{ guestEvent.title }}<br />
+          Description: {{ guestEvent.description }}<br />
+          Event Date: <span ng-bind="guestEvent.date | date:'MM/dd/yyyy'"></span><br />
+          Guestes Attending: {{ guestEvent.guests }}
+        </div>
       </div>
     </div>
   </div>
-</div>
+<!--</div>-->

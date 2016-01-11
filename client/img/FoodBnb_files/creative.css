@@ -8,27 +8,21 @@ html,
 body {
     width: 100%;
     height: 100%;
-    /*background: url(../img/food.jpg) no-repeat;*/
+    background: url(../img/food.jpg) no-repeat;
 }
 
 .white {
     color: white;
 }
 
-.red {
-    color:darkred;
+.silver {
+    color: red;
     font-weight: bolder;
 }
 
 #hostingBackground {
     background: url(../img/Vine.jpg) no-repeat;
     width: 1000px; padding: 50px
-}
-
-#attendingBackground {
-    background: url(../img/blur.jpeg) no-repeat;
-    width: 1000px; padding: 50px
-    /*background-size:100%*/
 }
 
 body {
