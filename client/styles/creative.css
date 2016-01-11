@@ -22,13 +22,14 @@ body {
 
 #hostingBackground {
     background: url(../img/Vine.jpg) no-repeat;
-    width: 1000px; padding: 50px
+    background-size: 100%;
+    width: 100%; padding: 50px
 }
 
 #attendingBackground {
-    background: url(../img/blur.jpeg) no-repeat;
-    width: 1000px; padding: 50px
-    /*background-size:100%*/
+    background: url(../img/potluck_resize.jpg) no-repeat;
+    background-size: 100%;
+    width: 100%; padding: 50px
 }
 
 body {
