@@ -4,59 +4,92 @@
     <form novalidate id='Event' name ='form' ng-submit='newEvent()'>
       <!--name properties let the form controller see everything and use special props -->
       Title:
-      <input type='text' placeholder='Title' ng-model = 'event.title' name='uTitle' required = ''>
-      <br />
-      <!-- This formatting is used to show a warning to fill in a field -->
-      <!-- .$touched is used so there won't be an error until you click in a field -->
-      <div ng-show="form.$submitted || form.uTitle.$touched">
-        <div ng-show="form.uTitle.$error.required">Need Title Plox</div>
-      </div>
+      <div show-errors class='form-group' ng-class="{ 'has-error': form.uTitle.$invalid &&
+      form.uTitle.$dirty}">
+        <input type='text' class='form-control' placeholder='Title' ng-model = 'event.title' name='uTitle' required = ''>
+        <br />
+        <p class="help-block" ng-if="form.uTitle.$error.required">A title is required</p>
+      </div>  
+      
 
       Description:
-      <input type='text' placeholder='Description' ng-model = 'event.description' name='uDescription' required = ''>
-      <br />
-      <div ng-show="form.$submitted || form.uDescription.$touched">
-        <div ng-show="form.uDescription.$error.required">Need Description Plox</div>
-      </div>
-
+      <div show-errors class='form-group' ng-class="{ 'has-error': form.uDescription.$invalid &&
+      form.uDescription.$dirty}">
+        <input type='text' class='form-control' placeholder='Description' ng-model = 'event.description' name='uDescription' required = ''>
+        <br />
+        <p class="help-block" ng-if="form.uDescription.$error.required">A description is required</p>
+      </div>  
+    
       Time: 
-      <input type="time" name="uTime" placeholder="HH:mm:ss" ng-model = 'event.time' required/>
-      <br />
-      <div ng-show="form.$submitted || form.uTime.$touched">
-        <div ng-show="form.uTime.$error.required">Need Time Plox</div>
-      </div>
+      <div show-errors class='form-group' ng-class="{ 'has-error': form.uTime.$invalid &&
+      form.uTime.$dirty}">
+        <input type="time" class='form-control' name="uTime" placeholder="HH:mm:ss" ng-model = 'event.time' required/>
+        <br />
+        <p class="help-block" ng-if="form.uTime.$error.required">A time is required</p>
 
-      Date:
-      <input type="date" name="uDate" placeholder="yyyy-MM-dd" ng-model = 'event.date' required />
-      <br />
-      <div ng-show="form.$submitted || form.uDate.$touched">
-        <div ng-show="form.Date.$error.required">Need Date Plox</div>
       </div>
 
 
-      Guests #:
-      <select ng-model = 'event.guests' class="1-100">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="Anyone!">Anyone!</option>
-      </select>
+      Date
+      <div show-errors class='form-group' ng-class="{ 'has-error': form.uDate.$invalid &&
+      form.uDate.$dirty}">
+        <input type="date" class='form-control' name="uDate" placeholder="yyyy-MM-dd" ng-model = 'event.date' required />
+        <br />
+        <p class="help-block" ng-if="form.uDate.$error.required">A date is required</p>
+      </div>
 
-      <input placeholder='Address' ng-model = 'event.address'>
-      <input placeholder='City' ng-model = 'event.city'>
-      <input placeholder='State'ng-model = 'event.state'>
-      <input placeholder='Zip' ng-model = 'event.zip'>
+      Number of Guests
+      <div show-errors class='form-group guests' ng-class="{ 'has-error': form.uGuest.$invalid &&
+      form.uGuest.$dirty}">
+        <select name='uGuest' class='form-control' ng-model = 'event.guests' class="1-100" required>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="Anyone!">Anyone!</option>
+        </select>
+        <p class="help-block" ng-if="form.uGuest.$error.required">PARTTYYY!!!!!</p>
+        <br />
+      </div> 
+
+      Address
+      <div show-errors class='form-group address' ng-class="{ 'has-error': form.uAddress.$invalid &&
+      form.uAddress.$dirty}">
+        <input name='uAddress' class='form-control' placeholder='Address' ng-model = 'event.address' required>
+        <p class="help-block" ng-if="form.uAddress.$error.required">An address is required</p>
+      </div>  
+
+      City
+      <div show-errors class='form-group address' ng-class="{ 'has-error': form.uCity.$invalid &&
+      form.uCity.$dirty}">
+        <input name='uCity' class='form-control' placeholder='City' ng-model = 'event.city' required>
+        <p class="help-block" ng-if="form.uCity.$error.required">A city is required</p>
+      </div>  
+
+      State/Province/Region
+      <div show-errors class='form-group address' ng-class="{ 'has-error': form.uState.$invalid &&
+      form.uState.$dirty}">
+        <input name='uState' class='form-control' placeholder='State'ng-model = 'event.state' required>
+        <p class="help-block" ng-if="form.uState.$error.required">A state is required</p>
+      </div>  
+
+      Zip/Postal Code
+      <div show-errors class='form-group zip address' ng-class="{ 'has-error': form.uZip.$invalid &&
+      form.uZip.$dirty}">
+        <input name='uZip' class='form-control' placeholder='Zip' ng-model = 'event.zip' required>
+        <p class="help-block" ng-if="form.uZip.$error.required">A zip or postal code is required</p>
+      </div>  
     </form>
   </div>
   <!-- Ng-Disabled greys out submit button using ng-Forms 
       The form attribute seems to reference the form ID not the form name -->
 
-  <button type="submit" form='Event' value="Submit" ng-disabled="form.$invalid">Submit</button>
+  <button class='btn btn-primary' type="submit" form='Event' value="Submit">Add Event</button>
+  <button class='btn btn-link' ng-click='resetForm()'>Reset</button>
 </div>
