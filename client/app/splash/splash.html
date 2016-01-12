@@ -7,10 +7,17 @@ Displays the events users have hosting or joined -->
     <h1 class="red">Hosting</h1><br>
     <div ng-repeat="hostEvent in data.hosting | orderBy:'date' | date :'MM/dd/yyyy'">
       <div class="white">
-        Event: {{ hostEvent.title }}<br />
-        Description: {{ hostEvent.description }}<br />
-        Event Date: <span ng-bind="hostEvent.date | date:'MM/dd/yyyy'"></span><br>
-        Guests Attending: {{ hostEvent.guests }}<br><br>
+        {{ hostEvent.title }}<br />
+        Host: {{ hostEvent.host }} <br>
+        When: {{ hostEvent.date | date:"MM/dd/yyyy 'at' h:mma"}}<br />
+        Where: {{ hostEvent.address }}<br />
+        {{ hostEvent.city + ', ' + hostEvent.state + ' ' + hostEvent.zip}}<br />
+        Guests:
+        <ul>
+          <li ng-repeat="guest in hostEvent.guests"> {{ guest }}</li>
+        </ul>
+        Seats Remaining: {{hostEvent.guestsCap - hostEvent.guests.length}}<br />
+        {{ hostEvent.description }}<br />
       </div>
     </div><br>
     </div>
@@ -19,10 +26,17 @@ Displays the events users have hosting or joined -->
       <h1 class="red">Attending</h1>
       <div ng-repeat="guestEvent in data.attending | orderBy:'date'" style="color: black; font-weight: bold">
         <div>
-          Event: {{ guestEvent.title }}<br />
-          Description: {{ guestEvent.description }}<br />
-          Event Date: <span ng-bind="guestEvent.date | date:'MM/dd/yyyy'"></span><br />
-          Guestes Attending: {{ guestEvent.guests }}<br><br>
+          {{ guestEvent.title }}<br />
+          Host: {{ guestEvent.host }} <br>
+          When: {{ guestEvent.date | date:"MM/dd/yyyy 'at' h:mma"}}<br />
+          Where: {{ guestEvent.address }}<br />
+          {{ guestEvent.city + ', ' + guestEvent.state + ' ' + guestEvent.zip}}<br />
+          Guests:
+          <ul>
+            <li ng-repeat="guest in guestEvent.guests"> {{ guest }}</li>
+          </ul>
+          Seats Remaining: {{guestEvent.guestsCap - guestEvent.guests.length}}<br />
+          {{ guestEvent.description }}<br />
         </div>
       </div>
     </div>
