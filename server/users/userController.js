@@ -59,8 +59,9 @@ module.exports = {
     // then decode the token, which we end up being the user object
     // check to see if that user exists in the database
     var token = req.headers['x-access-token'];
-    if (!token) {
-      next(new Error('No token'));
+    // check if user logged out with null from client or if a new user
+    if (token === 'null' || !token) {
+      res.json({ auth: false});
     } else {
       var user = jwt.decode(token, 'secret');
       findUser({email: user.email})
