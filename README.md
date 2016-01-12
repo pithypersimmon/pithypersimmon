@@ -78,3 +78,7 @@ Log in is handled by Google's OpenId Connect System. The log in button lives on 
 | `addUserToEvent` | Takes in an id Param and user data. Queries the database for the event by Id and pushes the user to its guests property |
 | `getEventsUserIsAttending` | Takes in user data and queries all Events where user is in the guests array |
 | `getEventUserIsHosting` | Takes in user data and queries all Events where user is in the host property |
+
+# CSS Framework
+### Twitter Bootstrap
+Documentation: http://getbootstrap.com/2.3.2/base-css.html
