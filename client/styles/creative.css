@@ -40,6 +40,27 @@ body {
     width: 100%; padding: 50px
 }
 
+#eventfood1 {
+    background: url(../img/Images/burger.jpg) no-repeat;
+    background-size: 100%;
+    width: 100%; padding: 60px;
+}
+#eventfood2 {
+    background: url(../img/Images/ramen.jpg) no-repeat;
+    background-size: 100%;
+    width: 100%; padding: 60px;
+}
+#eventfood3 {
+    background: url(../img/Images/chicken.jpg) no-repeat;
+    background-size: 100%;
+    width: 100%; padding: 60px;
+}
+#eventfood0 {
+    background: url(../img/Images/bruschetta.jpg) no-repeat;
+    background-size: 100%;
+    width: 100%; padding: 60px;
+}
+
 body {
     font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;
 }
