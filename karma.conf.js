@@ -20,9 +20,9 @@ module.exports = function (config) {
       'client/app/**/*.js',
 
       // our spec files - in order of the README
-      // 'specs/client/servicesSpec.js',
-      // 'specs/client/eventControllerSpec.js',
-      'spec/routingSpec.js'
+      // 'spec/client/servicesSpec.js',
+      'spec/client/eventControllerSpec.js',
+      'spec/client/routingSpec.js'
     ],
 
     // test results reporter to use

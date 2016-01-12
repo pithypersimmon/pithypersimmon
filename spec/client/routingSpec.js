@@ -20,15 +20,15 @@ describe('Routing', function () {
     expect($route.routes['/splash'].templateUrl).to.equal('app/splash/splash.html');
   });
 
-  // it('Should have /links route, template, and controller', function () {
-  //   expect($route.routes['/links']).to.be.defined;
-  //   expect($route.routes['/links'].controller).to.equal('LinksController');
-  //   expect($route.routes['/links'].templateUrl).to.equal('app/links/links.html');
-  // });
+  it('Should have /host route, template, and controller', function () {
+    expect($route.routes['/host']).to.be.defined;
+    expect($route.routes['/host'].controller).to.equal('hostCtrl');
+    expect($route.routes['/host'].templateUrl).to.equal('app/host/host.html');
+  });
 
-  // it('Should have /shorten route, template, and controller', function () {
-  //   expect($route.routes['/shorten']).to.be.defined;
-  //   expect($route.routes['/shorten'].controller).to.equal('ShortenController');
-  //   expect($route.routes['/shorten'].templateUrl).to.equal('app/shorten/shorten.html');
-  // });
+  it('Should have /events route, template, and controller', function () {
+    expect($route.routes['/events']).to.be.defined;
+    expect($route.routes['/events'].controller).to.equal('eventCtrl');
+    expect($route.routes['/events'].templateUrl).to.equal('app/event/event.html');
+  });
 });
