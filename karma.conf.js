@@ -21,7 +21,7 @@ module.exports = function (config) {
 
       // our spec files - in order of the README
       'spec/client/servicesSpec.js',
-      // 'specs/client/eventControllerSpec.js',
+      'spec/client/eventControllerSpec.js',
       'spec/client/routingSpec.js'
     ],
 
