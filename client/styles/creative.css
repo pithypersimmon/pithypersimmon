@@ -15,6 +15,10 @@ body {
     color: white;
 }
 
+.black {
+    background: black;
+}
+
 .red {
     color:darkred;
     font-weight: bolder;
