@@ -1,24 +1,25 @@
 <!--Event Page 
 Search Through all event-->
+<div class="container">
+  <h1>Event</h1><br>
+  <div ng-repeat="event in data.events | orderBy:'date'" class="col-lg-6">
+    <div>
+    <!-- This Link is used to join an event
+          Eventually this will be used to go to an individual event page -->
 
-<h1>Event</h1>
-<div ng-repeat="event in data.events | orderBy:'date'">
-  <div>
-  <!-- This Link is used to join an event 
-        Eventually this will be used to go to an individual event page -->
-
-    <a ng-href="/#/event/{{ event._id }}">{{ event.title }}</a><br />
-    Host: {{ event.host }} <br>
-    When: {{ event.date | date:"MM/dd/yyyy 'at' h:mma"}}<br />
-    Where: {{ event.address }}<br />
-    {{ event.city + ', ' + event.state + ' ' + event.zip}}<br />
-    <!-- Guests: {{ event.guests }}<br /> -->
-    Guests:
-    <ul>
-      <li ng-repeat="guest in event.guests"> {{ guest }}</li>
-    </ul>
-    Seats Remaining: {{event.guestsCap - event.guests.length}}<br />
-    {{ event.description }}<br />
-    <button ng-click='joinAnEvent(event._id);'>Attend Event</button><br /><br />
+      <a ng-href="/#/event/{{ event._id }}">{{ event.title }}</a><br />
+      Host: {{ event.host }} <br>
+      When: {{ event.date | date:"MM/dd/yyyy 'at' h:mma"}}<br />
+      Where: {{ event.address }}<br />
+      {{ event.city + ', ' + event.state + ' ' + event.zip}}<br />
+      <!-- Guests: {{ event.guests }}<br /> -->
+      Guests:
+      <ul>
+        <li ng-repeat="guest in event.guests"> {{ guest }}</li>
+      </ul>
+      Seats Remaining: {{event.guestsCap - event.guests.length}}<br />
+      {{ event.description }}<br />
+      <button ng-click='joinAnEvent(event._id);'>Attend Event</button><br /><br /><br>
+    </div>
   </div>
 </div>
