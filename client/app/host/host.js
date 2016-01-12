@@ -16,6 +16,7 @@ angular.module('foodbnb.host', [])
   $scope.newEvent = function (){
     console.log($scope.event);
 
+    if ($scope.form.$invalid) { $scope.$broadcast('show-errors-check-validity'); return; }
     /*Concatenates and replaces space with plus signs to 
     create a complete address for google geocode api*/
     var address = "" + $scope.event.address + "+" + $scope.event.city + 
@@ -44,6 +45,8 @@ angular.module('foodbnb.host', [])
         .then(function (response) {
           if (response) console.log("Successful Post");   
           clearFields();
+          $scope.$broadcast('show-errors-reset');
+          $("html, body").animate({ scrollTop: 0 }, "slow");
         }); 
       }
     });  
