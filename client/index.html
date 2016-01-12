@@ -74,6 +74,7 @@
           console.log('pre: ', userObject);
 
           userObject.token = null;
+          userObject.imageUrl = null;
           localStorage.setItem('user', JSON.stringify(userObject));
           console.log('post: ', JSON.parse(localStorage.getItem('user')));
 
@@ -111,7 +112,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li ng-controller="splashCtrl">
--              <img src="{{ imageUrl }}" height="35" width="35" class="img-circle" >
+-              <img ng-if="imageUrl !== null" src="{{ imageUrl }}" height="35" width="35" class="img-circle" >
 -           </li>
             <li>
               <a class="page-scroll" href="/#/splash">Home</a>
