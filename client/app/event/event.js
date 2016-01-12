@@ -3,6 +3,10 @@ angular.module('foodbnb.event', [])
   $scope.data = {};
   $scope.userObject = JSON.parse(localStorage.getItem('user'));
 
+  $scope.count = 0;
+  $scope.picture = function () {
+    
+  };
   var initializeEvents = function() {
     Events.getAll()
       .then(function (events) {

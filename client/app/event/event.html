@@ -3,7 +3,7 @@ Search Through all event-->
 <div class="container">
   <h1>Event</h1><br>
   <div ng-repeat="event in data.events | orderBy:'date'" class="col-lg-6">
-    <div>
+    <div id="{{'eventfood' + $index}}" >
     <!-- This Link is used to join an event
           Eventually this will be used to go to an individual event page -->
 
@@ -19,7 +19,7 @@ Search Through all event-->
       </ul>
       Seats Remaining: {{event.guestsCap - event.guests.length}}<br />
       {{ event.description }}<br />
-      <button ng-click='joinAnEvent(event._id);'>Attend Event</button><br /><br /><br>
+      <button class='btn' ng-click='joinAnEvent(event._id);'>Attend Event</button><br /><br /><br>
     </div>
   </div>
 </div>
