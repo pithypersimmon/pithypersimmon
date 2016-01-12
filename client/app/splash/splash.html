@@ -17,12 +17,12 @@ Displays the events users have hosting or joined -->
 
     <div id="attendingBackground">
       <h1 class="red">Attending</h1>
-      <div ng-repeat="guestEvent in data.attending | orderBy:'date'">
+      <div ng-repeat="guestEvent in data.attending | orderBy:'date'" style="color: black; font-weight: bold">
         <div>
           Event: {{ guestEvent.title }}<br />
           Description: {{ guestEvent.description }}<br />
           Event Date: <span ng-bind="guestEvent.date | date:'MM/dd/yyyy'"></span><br />
-          Guestes Attending: {{ guestEvent.guests }}
+          Guestes Attending: {{ guestEvent.guests }}<br><br>
         </div>
       </div>
     </div>
