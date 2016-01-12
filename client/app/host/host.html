@@ -1,6 +1,6 @@
 <div>
-  <h1>Host</h1>
-  <div>
+  <div class='col-md-6 col-md-offset-3'>
+    <h1>Host</h1>
     <form novalidate id='Event' name ='form' ng-submit='newEvent()'>
       <!--name properties let the form controller see everything and use special props -->
       Title:
@@ -86,10 +86,10 @@
         <p class="help-block" ng-if="form.uZip.$error.required">A zip or postal code is required</p>
       </div>  
     </form>
+    <button class='btn btn-primary' type="submit" form='Event' value="Submit">Add Event</button>
+    <button class='btn btn-link' ng-click='resetForm()'>Reset</button>
   </div>
   <!-- Ng-Disabled greys out submit button using ng-Forms 
       The form attribute seems to reference the form ID not the form name -->
 
-  <button class='btn btn-primary' type="submit" form='Event' value="Submit">Add Event</button>
-  <button class='btn btn-link' ng-click='resetForm()'>Reset</button>
 </div>
