@@ -6,7 +6,8 @@
 
 | Method        | Endpoint      | Description  |
 | ------------- |:-------------:| ------------:|
-| `POST` | /api/users/signedin | Send login data from google api to server to create new user in database or grab existing user |
+| `POST` | /api/users/signin | Send login data from google api to server to create new user in database or grab existing user. Tokenizes user's data |
+| `POST` | /api/users/signedin | Send authentification of user and detokenize data |
 | `GET` | /api/events | Returns all events in the database |
 | `POST` | /api/events | All information is passed in via the inputs with the exception of username which is in local storage |
 | `GET` | /api/events/:id | Get an event based on its unique object id field that mongoDB provides by default |
