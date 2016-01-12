@@ -15,6 +15,14 @@ body {
     color: white;
 }
 
+.black {
+    background: black;
+}
+
+.grey {
+    background: dimgray;
+}
+
 .red {
     color:darkred;
     font-weight: bolder;
