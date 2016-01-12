@@ -21,8 +21,8 @@ module.exports = function (config) {
 
       // our spec files - in order of the README
       // 'specs/client/servicesSpec.js',
-      // 'specs/client/eventControllerSpec.js',
-      'spec/routingSpec.js'
+      'specs/client/eventControllerSpec.js',
+      'spec/client/routingSpec.js'
     ],
 
     // test results reporter to use
