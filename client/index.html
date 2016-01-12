@@ -29,12 +29,10 @@
 
     <title>FoodBnb</title>
     <link rel="stylesheet" type="text/css" href="styles/styles.css" />
-    <!-- <link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap.min.css" /> -->
     <script>
 
       //** TODO: Using Google Sign in using OpenID
       function onSignIn(googleUser) {
-        console.log("HERE")
         /* TODO: Useful data for your client-side scripts. Just Logging in console to view data.
 
          TODO: ***COMMENT OUT THIS BLOCK BEFORE PRODUCTION ***//////////////////////////////////////////////
@@ -63,8 +61,6 @@
             // quick test to verify localStorage data
             // var parsedString = JSON.parse(localStorage.user);
             // console.log('loc: ', parsedString);
-
-            console.log("YAY!!!!")
             $('html,body').animate({scrollTop: $("#scroll").offset().top}, "slow")
 
           }
@@ -72,6 +68,16 @@
 
         //Google logout that logs user directly out of google and redirects to index
         var logout = function(){
+          // Simple logout that sets the user token to null
+          // Logs users out of FoodBnb and not Google
+          var userObject = JSON.parse(localStorage.getItem('user'));
+          console.log('pre: ', userObject);
+
+          userObject.token = null;
+          localStorage.setItem('user', JSON.stringify(userObject));
+          console.log('post: ', JSON.parse(localStorage.getItem('user')));
+
+          // Logout of google
           document.location.href = "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost:8080";
         }
 
@@ -104,9 +110,6 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li ng-controller="splashCtrl">
-              <img src="{{ imageUrl }}" height="35" width="35" class="img-circle" >
-            </li>
             <li>
               <a class="page-scroll" href="/#/splash">Home</a>
             </li>

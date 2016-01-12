@@ -6,6 +6,8 @@ angular.module('foodbnb.auth', [])
   // var checkUser = function() {
   //   Login.checkAuth()
   //     .then(function (data) {
+  //       var user = JSON.parse(localStorage.getItem('user'));
+  //       $scope.data.user = user;
   //       $scope.data.auth = data.auth;
   //     })
   //     .catch(function(error) {
