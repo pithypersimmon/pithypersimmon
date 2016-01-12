@@ -79,6 +79,10 @@
           logout()
         });
 
+        $(".page-scroll").on('click', function(){
+          $('html,body').animate({scrollTop: $("#scroll").offset().top}, "slow")
+        })
+
       };
 
     </script>
